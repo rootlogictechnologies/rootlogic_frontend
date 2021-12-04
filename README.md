@@ -1,2 +1,1 @@
-# rootlogic_frontend
-Front-End Repo for the website
+# RootLogic Coming Soon Website
