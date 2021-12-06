@@ -9,7 +9,7 @@ function DesktopNavigation() {
       {navigation.map((nav, index) => {
         return (
           <Link href={`${nav.path}`} key={index}>
-            <a className="font-poppins text-rl-dark-grey font-semibold text-sm cursor-pointer transform transition hover:scale-105 duration-300 ease-in-out">
+            <a className="text-rl-dark-grey font-semibold text-sm cursor-pointer transform transition hover:scale-105 duration-300 ease-in-out">
               {nav.name}
             </a>
           </Link>

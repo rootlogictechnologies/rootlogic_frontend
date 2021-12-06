@@ -16,9 +16,9 @@ export default function Navigation({ children }) {
 
   return (
     <>
-      <div className="min-h-screen flex flex-col font-poppins">
+      <div className="min-h-screen flex flex-col">
         {/* Top nav*/}
-        <header className="relative py-5 bg-white flex items-center justify-between mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <header className="relative py-3 md:py-5 bg-white flex items-center justify-between mx-auto px-4 sm:px-6 lg:px-8 w-full">
           {/* Logo area */}
           <div className="w-1/2 md:w-1/4">
             <a className="flex items-center justify-start">
@@ -41,7 +41,7 @@ export default function Navigation({ children }) {
           <div className="hidden md:min-w-0 w-3/4 md:flex-1 md:flex md:items-center md:justify-end">
             <DesktopNavigation />
             <Link href="/contactUs">
-              <button className="ml-8 bg-rl-red text-white font-poppins font-semibold text-sm text-center px-5 py-2.5 rounded-full cursor-pointer transform transition hover:scale-105 duration-300 ease-in-out">
+              <button className="ml-8 bg-rl-red text-white font-semibold text-sm text-center px-5 py-2.5 rounded-full cursor-pointer transform transition hover:scale-105 duration-300 ease-in-out">
                 Let's Talk
               </button>
             </Link>

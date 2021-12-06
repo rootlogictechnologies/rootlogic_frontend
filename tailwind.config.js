@@ -38,6 +38,9 @@ module.exports = {
         "rl-pink": "#F7E2ED",
         "rl-red-opacity": "rgba(255, 29, 49, 0.06)",
       },
+      boxShadow: {
+        xs: "0px 0px 40px rgba(212, 217, 232, 0.2)",
+      },
     },
   },
   variants: {

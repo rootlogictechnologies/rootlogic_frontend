@@ -18,7 +18,7 @@ export default function Footer() {
 
   return (
     <footer
-      className="bg-rl-dark-grey text-white font-poppins"
+      className="bg-rl-dark-grey text-white"
       aria-labelledby="footer-heading"
     >
       <h2 id="footer-heading" className="sr-only">

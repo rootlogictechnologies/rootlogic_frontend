@@ -53,8 +53,20 @@ header {
   background-size: cover;
 }
 
+.bg-hero-graphic {
+  background-image: url("../assets/HeroSection.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 @media only screen and (max-width: 768px) {
   .bg-cta-graphic {
     background-image: url("../assets/ContactUsCTAMobile.svg");
   }
+  .bg-hero-graphic {
+    background-image: url("../assets/HeroSectionMobile.svg");
+  }
+}
+
+.slick-dots {
+  display: none !important;
 }
