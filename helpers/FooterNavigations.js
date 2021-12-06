@@ -1,11 +1,11 @@
 export const navigation = {
   company: [
-    { name: "Home", href: "#" },
-    { name: "About Us", href: "#" },
-    { name: "What We Do", href: "#" },
-    { name: "Blog", href: "#" },
-    { name: "Careers", href: "#" },
-    { name: "Contact Us", href: "#" },
+    { name: "Home", href: "/" },
+    { name: "About Us", href: "aboutUs" },
+    { name: "What We Do", href: "/services" },
+    { name: "Blog", href: "/blogs" },
+    { name: "Careers", href: "/careers" },
+    { name: "Contact Us", href: "/contactUs" },
   ],
   services: [
     { name: "Full-stack Web Development", href: "#" },

@@ -1,5 +1,6 @@
 import { Fragment, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Dialog, Transition } from "@headlessui/react";
 import { MenuIcon } from "@heroicons/react/outline";
 
@@ -15,7 +16,7 @@ export default function Navigation({ children }) {
 
   return (
     <>
-      <div className="min-h-screen flex flex-col">
+      <div className="min-h-screen flex flex-col font-poppins">
         {/* Top nav*/}
         <header className="relative py-5 bg-white flex items-center justify-between mx-auto px-4 sm:px-6 lg:px-8 w-full">
           {/* Logo area */}
@@ -39,9 +40,11 @@ export default function Navigation({ children }) {
           {/* Desktop nav area */}
           <div className="hidden md:min-w-0 w-3/4 md:flex-1 md:flex md:items-center md:justify-end">
             <DesktopNavigation />
-            <button className="ml-8 bg-rl-red text-white font-poppins font-semibold text-sm text-center px-5 py-2.5 rounded-full cursor-pointer transform transition hover:scale-105 duration-300 ease-in-out">
-              Let's Talk
-            </button>
+            <Link href="/contactUs">
+              <button className="ml-8 bg-rl-red text-white font-poppins font-semibold text-sm text-center px-5 py-2.5 rounded-full cursor-pointer transform transition hover:scale-105 duration-300 ease-in-out">
+                Let's Talk
+              </button>
+            </Link>
           </div>
           {/* Mobile menu, show/hide this `div` based on menu open/closed state */}
           <Transition.Root show={mobileMenuOpen} as={Fragment}>

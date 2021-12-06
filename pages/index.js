@@ -1,3 +1,9 @@
+import ContactUsCTA from "components/Common/ContactUsCTA";
+
 export default function Home() {
-  return <div>Content</div>;
+  return (
+    <div>
+      <ContactUsCTA />
+    </div>
+  );
 }

@@ -32,7 +32,10 @@ export default function MobileNavigation({ setMobileMenuOpen }) {
         {navigation.map((item) => (
           <Fragment key={item.name}>
             <Link href={`${item.path}`}>
-              <a className="block rounded-md py-2 px-3 font-bold text-white text-4xl">
+              <a
+                onClick={() => setMobileMenuOpen(false)}
+                className="block rounded-md py-2 px-3 font-bold text-white text-4xl"
+              >
                 {item.name}
               </a>
             </Link>
