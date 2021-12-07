@@ -2,11 +2,14 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+// Assets
 import Logo from "assets/Logo/LetterLogoWhite.svg";
 import SendIcon from "assets/Send.svg";
 
+// Data
 import { navigation } from "helpers/FooterNavigations";
 
+// Component
 import NavList from "./NavList";
 
 export default function Footer() {
@@ -24,7 +27,7 @@ export default function Footer() {
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
-      <div className="mx-auto py-14 px-4 sm:px-6 lg:py-20 lg:px-8">
+      <div className="mx-auto py-14 px-7 lg:py-20 lg:px-8 max-w-6xl">
         <div className="flex flex-col items-start space-y-10 md:space-y-0 md:grid md:grid-cols-10 gap-10">
           <div className="col-span-3 flex flex-col items-start space-y-10">
             <Image className="h-10" src={Logo} alt="Company name" />

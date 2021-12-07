@@ -1,7 +1,7 @@
 export const navigation = {
   company: [
     { name: "Home", href: "/" },
-    { name: "About Us", href: "aboutUs" },
+    { name: "About Us", href: "/aboutUs" },
     { name: "What We Do", href: "/services" },
     { name: "Blog", href: "/blogs" },
     { name: "Careers", href: "/careers" },

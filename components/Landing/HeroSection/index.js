@@ -7,7 +7,7 @@ import Landing from "assets/Banner/Landing.png";
 function HeroSection() {
   return (
     <main className="bg-rl-light bg-hero-graphic">
-      <div className="py-16 mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="py-16 mx-auto px-7 lg:px-8 max-w-6xl">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between">
           <div className="md:max-w-2xl w-10/12 md:w-1/2 lg:col-span-6 text-left">
             <h1 className="leading-snug font-bold text-4xl md:text-5xl text-rl-dark-grey">

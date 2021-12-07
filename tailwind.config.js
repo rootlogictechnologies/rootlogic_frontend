@@ -5,6 +5,7 @@ module.exports = {
     screens: {
       xs: "352px",
       sm: "560px",
+      smd: "600px",
       md: "768px", // Tablets
       lg: "1024px", // Laptops
       xl: "1280px",
@@ -41,10 +42,19 @@ module.exports = {
       boxShadow: {
         xs: "0px 0px 40px rgba(212, 217, 232, 0.2)",
       },
+      height: {
+        "278px": "278px",
+      },
+      width: {
+        "350px": "350px",
+      },
+      maxWidth: {
+        "350px": "350px",
+      },
     },
   },
   variants: {
     extend: {},
   },
-  plugins: [require("@tailwindcss/forms")],
+  plugins: [require("@tailwindcss/forms"), require("@tailwindcss/line-clamp")],
 };

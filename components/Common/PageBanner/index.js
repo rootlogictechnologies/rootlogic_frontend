@@ -10,7 +10,7 @@ export default function PageBanner({ image, heading = "", description = "" }) {
           alt="Page Banner"
         />
       </div>
-      <div className="mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+      <div className="mx-auto px-7 lg:px-8 py-12 md:py-20 max-w-6xl">
         <div className="flex flex-col items-center md:items-start space-y-5 text-center md:text-left">
           <h1 className="font-bold text-4xl md:text-5xl text-rl-dark-grey">
             {heading}

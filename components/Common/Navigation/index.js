@@ -2,6 +2,8 @@ import { Fragment, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Dialog, Transition } from "@headlessui/react";
+
+// Icons
 import { MenuIcon } from "@heroicons/react/outline";
 
 // Assets
@@ -18,12 +20,14 @@ export default function Navigation({ children }) {
     <>
       <div className="min-h-screen flex flex-col">
         {/* Top nav*/}
-        <header className="relative py-3 md:py-5 bg-white flex items-center justify-between mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <header className="relative py-3 md:py-5 bg-white flex items-center justify-between mx-auto px-7 lg:px-8 w-full max-w-6xl">
           {/* Logo area */}
           <div className="w-1/2 md:w-1/4">
-            <a className="flex items-center justify-start">
-              <Image className="h-8 w-auto" src={Logo} alt="RootLogic Logo" />
-            </a>
+            <Link href="/">
+              <a className="flex items-center justify-start">
+                <Image className="h-8 w-auto" src={Logo} alt="RootLogic Logo" />
+              </a>
+            </Link>
           </div>
           {/* Menu button area */}
           <div className="w-1/2 pr-4 flex items-center justify-end sm:pr-6 md:hidden">

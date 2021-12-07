@@ -1,14 +1,15 @@
-import Logos from "components/Common/Logos";
-
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
+// Component
+import Logos from "components/Common/Logos";
 
 function LogosList() {
   const settings = {
     dots: false,
     infinite: true,
-    slidesToShow: 6,
+    slidesToShow: 5,
     slidesToScroll: 1,
     autoplay: true,
     speed: 2000,
@@ -16,16 +17,7 @@ function LogosList() {
     cssEase: "linear",
     responsive: [
       {
-        breakpoint: 1180,
-        settings: {
-          slidesToShow: 5,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 970,
+        breakpoint: 1024,
         settings: {
           slidesToShow: 4,
           slidesToScroll: 1,
@@ -52,7 +44,7 @@ function LogosList() {
         },
       },
       {
-        breakpoint: 360,
+        breakpoint: 400,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -65,7 +57,7 @@ function LogosList() {
 
   return (
     <div className="bg-transparent">
-      <div className="py-12 px-4 sm:px-6 lg:px-8">
+      <div className="py-12 px-7 lg:px-8">
         <div className="grid grid-cols-1">
           <Slider {...settings}>
             {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => {

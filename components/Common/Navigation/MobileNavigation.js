@@ -12,7 +12,7 @@ import { navigation } from "helpers/Navigation";
 export default function MobileNavigation({ setMobileMenuOpen }) {
   return (
     <>
-      <div className="py-5 flex items-center justify-between px-4 sm:px-6">
+      <div className="py-5 flex items-center justify-between px-7">
         <div className="w-3/4">
           <a className="flex items-center justify-start h-8">
             <Image className="h-8 w-auto" src={Logo} alt="RootLogic Logo" />
