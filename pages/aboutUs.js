@@ -35,8 +35,16 @@ export default function AboutUs() {
               heights.
             </p>
           </div>
-          <div className="w-full rounded-xl h-52 sm:h-auto">
+          <div className="w-full rounded-xl h-52 sm:h-auto hidden sm:block">
             <Image src={img} alt="Image" className="object-cover" />
+          </div>
+          <div className="w-300px relative rounded-xl h-52 sm:hidden">
+            <Image
+              src={img}
+              alt="Image"
+              layout="fill"
+              className="object-cover rounded-lg"
+            />
           </div>
         </div>
       </div>

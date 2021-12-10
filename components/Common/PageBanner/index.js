@@ -5,8 +5,9 @@ export default function PageBanner({ image, heading = "", description = "" }) {
     <div>
       <div className="w-full">
         <Image
-          className=" h-32 md:h-80 w-full object-cover"
+          className="h-32 md:h-80 w-full object-cover"
           src={image}
+          layout="responsive"
           alt="Page Banner"
         />
       </div>

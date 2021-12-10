@@ -8,6 +8,7 @@ function SolutionsCard({ illustration, description }) {
           src={illustration}
           alt="Illustration"
           className="mx-auto w-full"
+          layout="fixed"
         />
       </div>
       <p className="font-normal text-md leading-7 text-center text-rl-dark-grey">

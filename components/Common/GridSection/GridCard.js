@@ -8,7 +8,7 @@ function GridCard({ icon, title, description, cardHeight }) {
       >
         {icon && (
           <div className="w-6 h-6">
-            <Image src={icon} className="w-full" alt="Illustration" />
+            <Image src={icon} layout="fixed" alt="Illustration" />
           </div>
         )}
         <div className="flex flex-col items-start space-y-2 md:space-y-3">

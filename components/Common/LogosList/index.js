@@ -60,8 +60,8 @@ function LogosList() {
       <div className="py-12 px-7 lg:px-8">
         <div className="grid grid-cols-1">
           <Slider {...settings}>
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => {
-              return <Logos />;
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item, index) => {
+              return <Logos image={item} index={index} />;
             })}
           </Slider>
         </div>

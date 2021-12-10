@@ -27,7 +27,11 @@ function HeroSection() {
           </div>
           <div className="relative mt-10 md:mt-0 sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:flex-row-reverse lg:items-end">
             <div className="relative w-full rounded-xl lg:max-w-md bg-transparent">
-              <Image className="w-full" src={Landing} alt="" />
+              <Image
+                className="w-300px h-300px md:w-445px md:h-600px"
+                src={Landing}
+                alt=""
+              />
             </div>
           </div>
         </div>

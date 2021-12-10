@@ -7,6 +7,7 @@ module.exports = {
       sm: "560px",
       smd: "600px",
       md: "768px", // Tablets
+      mlg: "930px",
       lg: "1024px", // Laptops
       xl: "1280px",
       "2xl": "1440px", // Large Laptops
@@ -21,7 +22,9 @@ module.exports = {
       lg: "1.25rem", // 20px
       xl: "1.375rem", // 22px
       "2xl": "1.5rem", // 24px
+      "2.5xl": "1.625rem", // 26px
       "3xl": "1.75rem", // 28px
+      "3.5xl": "2.125rem", // 34px
       "4xl": "2.25rem", // 36px
       "5xl": "3.375rem", // 54px
     },
@@ -42,14 +45,36 @@ module.exports = {
       boxShadow: {
         xs: "0px 0px 40px rgba(212, 217, 232, 0.2)",
       },
+      minHeight: {
+        "300px": "300px",
+        "600px": "600px",
+        "650px": "650px",
+        "700px": "700px",
+      },
       height: {
+        "135px": "135px",
+        "188px": "188px",
+        "242px": "242px",
         "278px": "278px",
+        "300px": "300px",
+        "340px": "340px",
+        "600px": "600px",
       },
       width: {
+        "110px": "110px",
+        "154px": "154px",
+        "200px": "200px",
+        "280px": "280px",
+        "300px": "300px",
         "350px": "350px",
+        "445px": "445px",
       },
-      maxWidth: {
-        "350px": "350px",
+      maxWidth: { "300px": "300px", "350px": "350px", "540px": "540px" },
+      inset: {
+        "88px": "88px",
+        "118px": "118px",
+        "160px": "160px",
+        "230px": "230px",
       },
     },
   },

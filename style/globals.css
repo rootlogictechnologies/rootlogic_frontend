@@ -15,6 +15,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+  cursor: default;
+}
+
 .website-bg {
   background-color: #fff;
 }
@@ -58,12 +69,22 @@ header {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.bg-services-graphic {
+  background-image: url("../assets/Services/ServicesBg.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 @media only screen and (max-width: 768px) {
   .bg-cta-graphic {
     background-image: url("../assets/ContactUsCTAMobile.svg");
   }
   .bg-hero-graphic {
     background-image: url("../assets/HeroSectionMobile.svg");
+  }
+  .bg-services-graphic {
+    background-image: url("../assets/Services/ServicesBgMobile.svg");
   }
 }
 
