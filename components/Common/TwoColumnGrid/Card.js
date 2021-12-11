@@ -1,14 +1,22 @@
-function Card({ title, description, index }) {
+import Image from "next/image";
+
+function Card({ title, description, icon, index }) {
   return (
-    <div key={index} className="sm:flex flex-row items-start">
+    <div key={index} className="flex flex-row items-start">
       <div className="sm:flex-shrink-0">
         <div className="flow-root">
           <div className="w-11 h-11 md:w-16 md:h-16 bg-rl-light flex flex-row items-center justify-center rounded-full text-sm md:text-2xl font-bold leading-7 text-rl-dark-grey">
-            {index + 1}
+            <div className="w-4 h-4 md:w-8 md:h-8">
+              {icon ? (
+                <Image src={icon} layout="responsive" alt="Illustration" />
+              ) : (
+                index + 1
+              )}
+            </div>
           </div>
         </div>
       </div>
-      <div className="mt-3 sm:mt-0 ml-2.5 md:ml-7 space-y-3">
+      <div className="ml-2.5 md:ml-7 space-y-3">
         <h3 className="font-semibold text-md md:text-xl leading-7 md:leading-9 text-rl-dark-grey">
           {title}
         </h3>

@@ -6,8 +6,11 @@ import ServicesImage from "components/OurServices/ServicesImage";
 import ServicesDetails from "components/OurServices/ServicesDetails";
 import ServicesPoints from "components/OurServices/ServicesPoints";
 import TechUsed from "components/OurServices/TechUsed";
+import TwoColumnGrid from "components/Common/TwoColumnGrid";
+
+//Utils
+import { executionProcess } from "helpers/Data";
 import { serviceDetails } from "helpers/Data";
-import ExecutionProcess from "components/OurServices/ExecutionProcess";
 
 export default function Services() {
   return (
@@ -45,7 +48,11 @@ export default function Services() {
           );
         })}
       </div>
-      <ExecutionProcess />
+      <TwoColumnGrid
+        heading="Our Execution Process"
+        list={executionProcess}
+        cssClass="md:grid-flow-col"
+      />
       <ContactUsCTA />
     </div>
   );

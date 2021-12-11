@@ -9,6 +9,14 @@ import Illustration1 from "assets/Solutions/Illustration1.svg";
 import Illustration2 from "assets/Solutions/Illustration2.svg";
 import Illustration3 from "assets/Solutions/Illustration3.svg";
 
+// Graphics for What drives our Team
+import Award from "assets/Team/Award.svg";
+import Sun from "assets/Team/Sun.svg";
+import Flag from "assets/Team/Flag.svg";
+import Message from "assets/Team/Message.svg";
+import Coffee from "assets/Team/Coffee.svg";
+import Disc from "assets/Team/Disc.svg";
+
 export const services = [
   {
     icon: Code,
@@ -204,5 +212,101 @@ export const executionProcess = [
     title: "Support and Customer Service",
     description:
       "To ensure continuous improvement, we perform ongoing product and platform maintenance and optimization, deploy market strategies, and provide real/fix support.",
+  },
+];
+
+export const teamDrives = [
+  {
+    icon: Award,
+    title: "Expertise over Experience",
+    description:
+      "We value the expertise you bring to the table more than the years of experience in your Resume. We are a flat organization where every thought is respected and every idea is given importance, no matter what level or role a Rootster is in.",
+  },
+  {
+    icon: Flag,
+    title: "Pursuit of Excellence",
+    description:
+      "Excellence is not an act but a habit.  Extraordinary people, who pursue excellence as a pattern, ask, “How can I do it?” We believe that people who strive for excellence are not fearful of change or challenges but will make things happen despite all odds.",
+  },
+  {
+    icon: Disc,
+    title: "Distributed Leadership",
+    description:
+      "Our well moderated workflows give enough opportunities for the team to rise up the ladder fast. We don’t micro-manage. Every individual is an owner of their task and is responsible for outcome oriented delivery that fits into a grander scale of things.",
+  },
+  {
+    icon: Sun,
+    title: "Inclusivity",
+    description:
+      "Inclusivity fosters the ability to generate innovative and competitive ideas in our rapidly changing world, from more diverse perspectives. We view this as a growth opportunity, as it helps us get different ideas in the mix.",
+  },
+  {
+    icon: Message,
+    title: "Effective Communication",
+    description:
+      "Good communication is just as important as all of the technical knowledge. With open and transparent communication, every Rootster feels more involved leading to a better collaboration, reducing redundancies and saving a lot of productive time.",
+  },
+  {
+    icon: Coffee,
+    title: "Fun",
+    description:
+      "Fun breeds creativity. We take enough care to see those wide grins of joy in every Rootster’s face. This  ensures our people are happy, healthy and are more productive.",
+  },
+];
+
+export const rootsterdna = [
+  "Fearlessness",
+  "Confidence",
+  "Knowledge",
+  "Team Spirit",
+  "Self Awareness",
+  "Resilience",
+];
+
+export const hiringTimeline = [
+  "Send us your Resume",
+  "HR contacts you",
+  "Technical interview",
+  "Technical assignment",
+  "HR interview",
+  "Offer",
+];
+
+export const currentOpenings = [
+  {
+    title: "Mid level PHP/Laravel developer",
+    description:
+      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui",
+    experience: "2+ Years",
+    type: "Full Time",
+    location: "Bangalore",
+    link: "#",
+  },
+  {
+    title: "Senior HTML/Front End Developer",
+    description:
+      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui",
+    experience: "2+ Years",
+    type: "Full Time",
+    location: "Bangalore",
+    link: "#",
+  },
+  {
+    title: "Digital Marketing Manager",
+    description:
+      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui",
+    experience: "2+ Years",
+    type: "Full Time",
+    location: "Bangalore",
+    link: "#",
+  },
+  {
+    title: "Senior WordPress/CMS Developer",
+    description:
+      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui",
+    experience: "2+ Years",
+    type: "Full Time",
+    location: "Bangalore",
+    link: "#",
   },
 ];

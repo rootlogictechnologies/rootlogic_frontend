@@ -53,7 +53,7 @@ export default function AboutUs() {
         heading="Values that define Rootlogic and help us drive Delivery"
         bgColor="bg-rl-red-opacity"
         list={aboutUsList}
-        textColor="rl-dark-grey"
+        textColor="text-rl-dark-grey"
       />
       <ContactUsCTA />
     </div>
