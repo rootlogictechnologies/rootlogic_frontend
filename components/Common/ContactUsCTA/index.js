@@ -1,11 +1,17 @@
 import Link from "next/link";
+import Image from "next/image";
+// Component
 import Heading from "../Heading";
+
+// Assets
+import BgGraphic from "assets/ContactUsCTA.svg";
 
 export default function ContactUsCTA() {
   return (
     <>
-      <div className="bg-rl-red bg-cta-graphic">
-        <div className="mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8 max-w-6xl">
+      <div className="bg-rl-red relative bg-cta-graphic">
+        <Image src={BgGraphic} layout="fill" />
+        <div className="mx-auto z-5 text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8 max-w-6xl">
           <Heading
             heading="It is time to go to market."
             textColor="text-white"

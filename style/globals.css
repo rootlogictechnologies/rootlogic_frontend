@@ -57,19 +57,6 @@ span {
 header {
   box-shadow: 0px 1px 0px #e5e9f2 !important;
 }
-
-.bg-cta-graphic {
-  background-image: url("../assets/ContactUsCTA.svg");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.bg-hero-graphic {
-  background-image: url("../assets/HeroSection.svg");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 .bg-services-graphic {
   background-image: url("../assets/Services/ServicesBg.svg");
   background-repeat: no-repeat;
@@ -79,9 +66,19 @@ header {
 @media only screen and (max-width: 768px) {
   .bg-cta-graphic {
     background-image: url("../assets/ContactUsCTAMobile.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .bg-cta-graphic > span {
+    display: none !important;
+  }
+  .bg-hero-graphic > span {
+    display: none !important;
   }
   .bg-hero-graphic {
     background-image: url("../assets/HeroSectionMobile.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
   }
   .bg-services-graphic {
     background-image: url("../assets/Services/ServicesBgMobile.svg");

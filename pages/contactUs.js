@@ -1,5 +1,9 @@
+// Components
 import PageBanner from "components/Common/PageBanner";
+import ContactInfo from "components/Contact/ContactInfo";
+import ContactForm from "components/Contact/ContactForm";
 
+// Assets
 import Banner from "assets/Banner/contact.png";
 
 export default function ContactUs() {
@@ -11,7 +15,8 @@ export default function ContactUs() {
         description="Questions? Comments? We’d love to hear from you. Please don’t hesitate to get in touch.
 Complete the form below so we can direct your inquiry to the right team."
       />
-      Contact
+      <ContactForm />
+      <ContactInfo />
     </div>
   );
 }

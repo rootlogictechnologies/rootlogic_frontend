@@ -45,6 +45,9 @@ module.exports = {
       boxShadow: {
         xs: "0px 0px 40px rgba(212, 217, 232, 0.2)",
       },
+      zIndex: {
+        5: "5",
+      },
       minHeight: {
         "300px": "300px",
         "600px": "600px",

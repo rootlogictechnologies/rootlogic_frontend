@@ -1,11 +1,6 @@
 <svg width="1440" height="800" viewBox="0 0 1440 800" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="1440" height="800" fill="white"/>
-<mask id="mask0_124_1056" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="1440" height="800">
-<rect width="1440" height="800" fill="#F4F5F7"/>
-</mask>
-<g mask="url(#mask0_124_1056)">
-<path opacity="0.1" d="M2248.74 -611.887L2248.58 -612.054C2127.22 -733.376 1930.48 -733.376 1809.13 -612.054L929.725 267.14C808.374 388.462 808.374 585.164 929.725 706.486L929.892 706.653C1051.24 827.975 1247.99 827.975 1369.34 706.653L2248.74 -172.541C2370.09 -293.863 2370.09 -490.565 2248.74 -611.887Z" fill="url(#paint0_linear_124_1056)"/>
-<path opacity="0.1" d="M1201.74 -1214.89L1201.58 -1215.05C1080.22 -1336.38 883.476 -1336.38 762.125 -1215.05L-117.275 -335.86C-238.626 -214.538 -238.626 -17.8361 -117.275 103.486L-117.108 103.653C4.2425 224.975 200.991 224.975 322.341 103.653L1201.74 -775.541C1323.09 -896.863 1323.09 -1093.56 1201.74 -1214.89Z" fill="url(#paint1_linear_124_1056)"/>
+<path opacity="0.1" d="M2248.74 -611.887L2248.58 -612.054C2127.22 -733.376 1930.48 -733.376 1809.13 -612.054L929.725 267.14C808.374 388.462 808.374 585.164 929.725 706.486L929.892 706.653C1051.24 827.975 1247.99 827.975 1369.34 706.653L2248.74 -172.541C2370.09 -293.863 2370.09 -490.565 2248.74 -611.887Z" fill="url(#paint0_linear_0_1)"/>
+<path opacity="0.1" d="M1201.74 -1214.89L1201.58 -1215.05C1080.22 -1336.38 883.476 -1336.38 762.125 -1215.05L-117.275 -335.86C-238.626 -214.538 -238.626 -17.8361 -117.275 103.486L-117.108 103.653C4.2425 224.975 200.991 224.975 322.341 103.653L1201.74 -775.541C1323.09 -896.863 1323.09 -1093.56 1201.74 -1214.89Z" fill="url(#paint1_linear_0_1)"/>
 <g opacity="0.1">
 <ellipse cx="1333.64" cy="166.086" rx="4.08642" ry="4.09348" transform="rotate(90 1333.64 166.086)" fill="#FF1D31"/>
 <ellipse cx="1315" cy="166.086" rx="4.08642" ry="4.09348" transform="rotate(90 1315 166.086)" fill="#FF1D31"/>
@@ -172,13 +167,12 @@
 <ellipse cx="31.3645" cy="785.914" rx="4.08642" ry="4.09348" transform="rotate(90 31.3645 785.914)" fill="#FF1D31"/>
 <ellipse cx="12.729" cy="785.914" rx="4.08642" ry="4.09348" transform="rotate(90 12.729 785.914)" fill="#FF1D31"/>
 </g>
-</g>
 <defs>
-<linearGradient id="paint0_linear_124_1056" x1="204336" y1="903549" x2="196349" y2="1.11074e+06" gradientUnits="userSpaceOnUse">
+<linearGradient id="paint0_linear_0_1" x1="204336" y1="903549" x2="196349" y2="1.11074e+06" gradientUnits="userSpaceOnUse">
 <stop stop-color="#FF1C30"/>
 <stop offset="1" stop-color="#E5173D"/>
 </linearGradient>
-<linearGradient id="paint1_linear_124_1056" x1="203289" y1="902946" x2="195302" y2="1.11014e+06" gradientUnits="userSpaceOnUse">
+<linearGradient id="paint1_linear_0_1" x1="203289" y1="902946" x2="195302" y2="1.11014e+06" gradientUnits="userSpaceOnUse">
 <stop stop-color="#FF1C30"/>
 <stop offset="1" stop-color="#E5173D"/>
 </linearGradient>
