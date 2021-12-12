@@ -91,3 +91,7 @@ header {
 .slick-dots {
   display: none !important;
 }
+
+input:focus {
+  --tw-ring-color: transparent !important;
+}
