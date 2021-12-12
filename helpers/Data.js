@@ -17,6 +17,16 @@ import Message from "assets/Team/Message.svg";
 import Coffee from "assets/Team/Coffee.svg";
 import Disc from "assets/Team/Disc.svg";
 
+// Graphics for Why RootLogic
+import Briefcase from "assets/About/Briefcase.svg";
+import Users from "assets/About/Users.svg";
+import Feather from "assets/About/Feather.svg";
+import Check from "assets/About/Check.svg";
+import File from "assets/About/File.svg";
+
+// Team Demo Images
+import Demo from "assets/DemoMember.png";
+
 export const services = [
   {
     icon: Code,
@@ -308,5 +318,65 @@ export const currentOpenings = [
     type: "Full Time",
     location: "Bangalore",
     link: "#",
+  },
+];
+
+export const ourSquad = [
+  {
+    image: Demo,
+    title: "Alpha Rootster",
+    name: "Pradeep Reddy",
+    description:
+      "PGC in Blockchain Technologies, 14 years of experience in Digital Transformation and delivering large scale enterprise grade projects.",
+  },
+  {
+    image: Demo,
+    name: "Nikhil Srivatsa",
+    description:
+      "With experience of over 7+ years in delivery software,  Nikhil is a scrum certified product owner. He helps Rootlogic with the much needed talent pipeline.",
+  },
+  {
+    image: Demo,
+    name: "Prashanth Namagiri",
+    description:
+      "Prashanth (Ex Uber, Ex Amazon) - Product management/product ownership.",
+  },
+];
+
+export const mentors = [
+  {
+    image: Demo,
+    name: "Chethan Atreyas",
+    description:
+      "Lorem ipsum dolor amet, consectetur adipiscing elit ipsum. Lorem ipsum dolor amet, consectetur.",
+  },
+  {
+    image: Demo,
+    name: "Amir Karr",
+    description:
+      "Lorem ipsum dolor amet, consectetur adipiscing elit ipsum. Lorem ipsum dolor amet, consectetur.",
+  },
+];
+
+export const whyRootlogic = [
+  {
+    icon: Briefcase,
+    description: "Experience counts",
+  },
+  {
+    icon: Users,
+    description: "Industry leaders with us onboard",
+  },
+  {
+    icon: Feather,
+    description: "Well defined processes",
+  },
+  {
+    icon: Check,
+    description: "Hiring from the best institutes",
+  },
+  {
+    icon: File,
+    description: "High chances that we might already know what you need",
   },
 ];

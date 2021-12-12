@@ -46,12 +46,12 @@ export default function Footer() {
               ))}
             </div>
           </div>
-          <div className="col-span-6 col-end-11 flex flex-col items-start space-y-10 md:space-y-0 md:grid md:grid-cols-4 gap-10">
-            <div className="col-span-2 flex flex-col items-start space-y-10 md:space-y-0 md:grid md:grid-cols-2 gap-10">
-              <div className="col-span-1">
+          <div className="col-span-7 col-end-11 flex flex-col items-start space-y-10 md:space-y-0 md:grid md:grid-cols-6 gap-10">
+            <div className="col-span-4 flex flex-col items-start space-y-10 md:space-y-0 md:grid md:grid-cols-6 gap-10">
+              <div className="col-span-2 col-start-2">
                 <NavList heading="Company" list={navigation.company} />
               </div>
-              <div className="mt-12 md:mt-0 col-span-1">
+              <div className="mt-12 md:mt-0 col-span-3 col-end-7">
                 <NavList heading="Our Services" list={navigation.services} />
               </div>
             </div>
@@ -59,7 +59,7 @@ export default function Footer() {
               <h2 className="inline text-xl leading-8 font-normal tracking-wider sm:block sm:text-xl">
                 Stay updated with our newsletter
               </h2>
-              <form className="mt-8 sm:flex w-5/6">
+              <form className="mt-8 sm:flex w-full">
                 <label htmlFor="email" className="sr-only">
                   Email
                 </label>

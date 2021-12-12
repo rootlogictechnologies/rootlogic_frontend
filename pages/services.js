@@ -26,7 +26,7 @@ export default function Services() {
           return (
             <div className="eachservicewithtech" key={index}>
               <div
-                className={`servicedetails w-full flex flex-col mlg:${
+                className={`servicedetails w-full flex flex-col bg-services-graphic mlg:${
                   index % 2 == 0 ? "flex-row" : "flex-row-reverse"
                 } items-center justify-between`}
               >

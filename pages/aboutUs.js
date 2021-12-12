@@ -10,7 +10,9 @@ import Banner from "assets/Banner/about.png";
 import img from "assets/AboutUs.png";
 
 // Data
-import { aboutUsList } from "helpers/Data";
+import { aboutUsList, mentors, ourSquad } from "helpers/Data";
+import Teams from "components/Common/Teams";
+import WhyRootLogic from "components/AboutUs/WhyRootLogic";
 
 export default function AboutUs() {
   return (
@@ -48,13 +50,15 @@ export default function AboutUs() {
           </div>
         </div>
       </div>
-
       <GridSection
         heading="Values that define Rootlogic and help us drive Delivery"
         bgColor="bg-rl-red-opacity"
         list={aboutUsList}
         textColor="text-rl-dark-grey"
       />
+      <Teams heading="Our Squad" list={ourSquad} />
+      <Teams heading="Mentors" list={mentors} />
+      <WhyRootLogic />
       <ContactUsCTA />
     </div>
   );
