@@ -1,0 +1,22 @@
+import Image from "next/image";
+
+function CaseStudiesCard({ image, title, description }) {
+  return (
+    <div className="group relative w-260px md:w-350px mx-auto">
+      <div className="w-full h-260px md:h-350px bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:aspect-none">
+        <Image src={image} alt="Case Study" layout="fixed" />
+      </div>
+      <div className="mt-4 space-y-3">
+        <h3 className="font-semibold text-md md:text-xl leading-7 md:leading-9 text-rl-dark-grey">
+          <span aria-hidden="true" className="absolute inset-0" />
+          {title}
+        </h3>
+        <p className="font-normal leading-6 md:leading-7 text-base md:text-md text-rl-dark-grey">
+          {description}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+export default CaseStudiesCard;

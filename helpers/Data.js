@@ -27,6 +27,9 @@ import File from "assets/About/File.svg";
 // Team Demo Images
 import Demo from "assets/DemoMember.png";
 
+// Case Studies Demo Image
+import DemoCase from "assets/DemoCases.png";
+
 export const services = [
   {
     icon: Code,
@@ -378,5 +381,33 @@ export const whyRootlogic = [
   {
     icon: File,
     description: "High chances that we might already know what you need",
+  },
+];
+
+export const CaseStudiesData = [
+  {
+    image: DemoCase,
+    title: "Project Title",
+    description: "Android,IoT",
+  },
+  {
+    image: DemoCase,
+    title: "Project Title",
+    description: "Android,IoT",
+  },
+  {
+    image: DemoCase,
+    title: "Project Title",
+    description: "Android,IoT",
+  },
+  {
+    image: DemoCase,
+    title: "Project Title",
+    description: "Android,IoT",
+  },
+  {
+    image: DemoCase,
+    title: "Project Title",
+    description: "Android,IoT",
   },
 ];

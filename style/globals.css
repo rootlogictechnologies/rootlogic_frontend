@@ -89,6 +89,18 @@ header {
   display: none !important;
 }
 
+.slick-arrow {
+  z-index: 10 !important;
+}
+
+.slick-next::before {
+  content: none !important;
+}
+
+.slick-prev::before {
+  content: none !important;
+}
+
 input:focus {
   --tw-ring-color: transparent !important;
 }

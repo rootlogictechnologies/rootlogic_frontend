@@ -4,6 +4,10 @@ import Image from "next/image";
 import ContactUsCTA from "components/Common/ContactUsCTA";
 import PageBanner from "components/Common/PageBanner";
 import GridSection from "components/Common/GridSection";
+import Teams from "components/Common/Teams";
+import WhyRootLogic from "components/AboutUs/WhyRootLogic";
+import OurPartners from "components/AboutUs/OurPartners";
+import CaseStudies from "components/AboutUs/CaseStudies";
 
 // Assets
 import Banner from "assets/Banner/about.png";
@@ -11,8 +15,7 @@ import img from "assets/AboutUs.png";
 
 // Data
 import { aboutUsList, mentors, ourSquad } from "helpers/Data";
-import Teams from "components/Common/Teams";
-import WhyRootLogic from "components/AboutUs/WhyRootLogic";
+import { CaseStudiesData } from "helpers/Data";
 
 export default function AboutUs() {
   return (
@@ -58,7 +61,9 @@ export default function AboutUs() {
       />
       <Teams heading="Our Squad" list={ourSquad} />
       <Teams heading="Mentors" list={mentors} />
+      <OurPartners />
       <WhyRootLogic />
+      <CaseStudies list={CaseStudiesData} />
       <ContactUsCTA />
     </div>
   );
