@@ -22,10 +22,14 @@ export default function Navigation({ children }) {
         {/* Top nav*/}
         <header className="relative py-3 md:py-5 bg-white flex items-center justify-between mx-auto px-7 lg:px-8 w-full max-w-6xl">
           {/* Logo area */}
-          <div className="w-1/2 md:w-1/4">
+          <div className="w-1/2 md:w-1/4 cursor-pointer">
             <Link href="/">
-              <a className="flex items-center justify-start">
-                <Image className="h-8 w-auto" src={Logo} alt="RootLogic Logo" />
+              <a className="flex items-center justify-start cursor-pointer">
+                <Image
+                  className="h-8 w-auto cursor-pointer"
+                  src={Logo}
+                  alt="RootLogic Logo"
+                />
               </a>
             </Link>
           </div>

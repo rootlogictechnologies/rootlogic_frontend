@@ -8,6 +8,7 @@ import TestimonialsSection from "components/Landing/Testimonials";
 
 // Data
 import { services } from "helpers/Data";
+import { testimonials } from "helpers/Data";
 
 export default function Home() {
   return (
@@ -23,7 +24,7 @@ export default function Home() {
         cardHeight="h-48 smd:h-278px"
       />
       <Solutions />
-      <TestimonialsSection />
+      <TestimonialsSection testimonials={testimonials} />
       <ContactUsCTA />
     </div>
   );

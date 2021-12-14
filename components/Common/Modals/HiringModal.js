@@ -12,8 +12,28 @@ import Input from "@mui/material/Input";
 // Assets
 import ModalGraphic from "assets/Career/ModalGraphic.svg";
 
-// TODO: Add validations and upload feature
+// Utils
+import { inputHandler } from "helpers/inputHandler";
+
+// TODO: Add upload feature
 function HiringModal({ open, setOpen }) {
+  const [details, setDetails] = useState({
+    name: "",
+    email: "",
+    phoneNumber: "",
+    linkedinProfile: "",
+    portfolioLink: "",
+    githubProfile: "",
+    uploadResume: "",
+  });
+
+  const onSubmit = async () => {
+    if (details.name !== "") {
+      console.log(details);
+      setOpen(false);
+    }
+  };
+
   return (
     <>
       <Transition.Root show={open} as={Fragment}>
@@ -76,6 +96,13 @@ function HiringModal({ open, setOpen }) {
                         label="Name"
                         type="text"
                         variant="standard"
+                        value={details?.name}
+                        onChange={(e) => {
+                          setDetails({
+                            ...details,
+                            name: inputHandler(e, "name"),
+                          });
+                        }}
                         className="w-full focus:border-0 focus:border-transparent focus:ring-0 focus:ring-transparent"
                       />
                       <TextField
@@ -83,6 +110,13 @@ function HiringModal({ open, setOpen }) {
                         label="Email"
                         type="email"
                         variant="standard"
+                        value={details?.email}
+                        onChange={(e) => {
+                          setDetails({
+                            ...details,
+                            email: inputHandler(e, "email"),
+                          });
+                        }}
                         className="w-full focus:border-0 focus:border-transparent focus:ring-0 focus:ring-transparent"
                       />
                       <TextField
@@ -90,6 +124,13 @@ function HiringModal({ open, setOpen }) {
                         label="Phone Number"
                         type="number"
                         variant="standard"
+                        value={details?.phoneNumber}
+                        onChange={(e) => {
+                          setDetails({
+                            ...details,
+                            phoneNumber: inputHandler(e, "phoneNumber"),
+                          });
+                        }}
                         className="w-full focus:border-0 focus:border-transparent focus:ring-0 focus:ring-transparent"
                       />
                       <TextField
@@ -97,6 +138,13 @@ function HiringModal({ open, setOpen }) {
                         label="Linkedin Profile"
                         type="text"
                         variant="standard"
+                        value={details?.linkedinProfile}
+                        onChange={(e) => {
+                          setDetails({
+                            ...details,
+                            linkedinProfile: inputHandler(e, "linkedinProfile"),
+                          });
+                        }}
                         className="w-full focus:border-0 focus:border-transparent focus:ring-0 focus:ring-transparent"
                       />
                       <TextField
@@ -104,6 +152,13 @@ function HiringModal({ open, setOpen }) {
                         label="Portfolio Link"
                         type="text"
                         variant="standard"
+                        value={details?.portfolioLink}
+                        onChange={(e) => {
+                          setDetails({
+                            ...details,
+                            portfolioLink: inputHandler(e, "portfolioLink"),
+                          });
+                        }}
                         className="w-full focus:border-0 focus:border-transparent focus:ring-0 focus:ring-transparent"
                       />
                       <TextField
@@ -111,6 +166,13 @@ function HiringModal({ open, setOpen }) {
                         label="Github Profile"
                         type="text"
                         variant="standard"
+                        value={details?.githubProfile}
+                        onChange={(e) => {
+                          setDetails({
+                            ...details,
+                            githubProfile: inputHandler(e, "githubProfile"),
+                          });
+                        }}
                         className="w-full focus:border-0 focus:border-transparent focus:ring-0 focus:ring-transparent"
                       />
                       <FormControl
@@ -125,6 +187,13 @@ function HiringModal({ open, setOpen }) {
                           label="Upload Resume"
                           type="text"
                           variant="standard"
+                          value={details?.uploadResume}
+                          onChange={(e) => {
+                            setDetails({
+                              ...details,
+                              uploadResume: inputHandler(e, "uploadResume"),
+                            });
+                          }}
                           className="w-full focus:border-0 focus:border-transparent focus:ring-0 focus:ring-transparent"
                           endAdornment={
                             <InputAdornment position="end">
@@ -139,7 +208,10 @@ function HiringModal({ open, setOpen }) {
                         />
                       </FormControl>
                       <button
-                        type="submit"
+                        type="button"
+                        onClick={() => {
+                          onSubmit();
+                        }}
                         className="bg-rl-red text-white font-semibold text-md text-center px-9 py-2.5 rounded-full cursor-pointer transform transition hover:scale-105 duration-300 ease-in-out"
                       >
                         Submit

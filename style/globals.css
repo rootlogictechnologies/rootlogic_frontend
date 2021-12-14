@@ -85,6 +85,10 @@ header {
   }
 }
 
+.testimonial {
+  display: flex !important;
+}
+
 .slick-dots {
   display: none !important;
 }

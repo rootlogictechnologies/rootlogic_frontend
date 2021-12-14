@@ -411,3 +411,69 @@ export const CaseStudiesData = [
     description: "Android,IoT",
   },
 ];
+
+export const testimonials = [
+  {
+    id: 1,
+    image: Demo,
+    name: "Jane Cooper",
+    title: "CEO, ABC Corporation",
+    testimonial:
+      "We had an incredible experience working with Rootlogic and were impressed they made such a big difference in only three weeks. Our team is so grateful for the wonderful improvements they made and their ability to get familiar with the product concept so quickly. It acted as a catalyst to take our design to the next level and get more eyes on our product.",
+  },
+  {
+    id: 2,
+    image: Demo,
+    name: "Jane Cooper",
+    title: "CEO, ABC Corporation",
+    testimonial:
+      "We had an incredible experience working with Rootlogic and were impressed they made such a big difference in only three weeks. Our team is so grateful for the wonderful improvements they made and their ability to get familiar with the product concept so quickly. It acted as a catalyst to take our design to the next level and get more eyes on our product.",
+  },
+  {
+    id: 3,
+    image: Demo,
+    name: "Jane Cooper",
+    title: "CEO, ABC Corporation",
+    testimonial:
+      "We had an incredible experience working with Rootlogic and were impressed they made such a big difference in only three weeks. Our team is so grateful for the wonderful improvements they made and their ability to get familiar with the product concept so quickly. It acted as a catalyst to take our design to the next level and get more eyes on our product.",
+  },
+  {
+    id: 4,
+    image: Demo,
+    name: "Jane Cooper",
+    title: "CEO, ABC Corporation",
+    testimonial:
+      "We had an incredible experience working with Rootlogic and were impressed they made such a big difference in only three weeks. Our team is so grateful for the wonderful improvements they made and their ability to get familiar with the product concept so quickly. It acted as a catalyst to take our design to the next level and get more eyes on our product.",
+  },
+  {
+    id: 5,
+    image: Demo,
+    name: "Jane Cooper",
+    title: "CEO, ABC Corporation",
+    testimonial: "Hey! Demo Testimonial",
+  },
+  {
+    id: 6,
+    image: Demo,
+    name: "Jane Cooper",
+    title: "CEO, ABC Corporation",
+    testimonial:
+      "We had an incredible experience working with Rootlogic and were impressed they made such a big difference in only three weeks. Our team is so grateful for the wonderful improvements they made and their ability to get familiar with the product concept so quickly. It acted as a catalyst to take our design to the next level and get more eyes on our product.We had an incredible experience working with Rootlogic and were impressed they made such a big difference in only three weeks. Our team is so grateful for the wonderful improvements they made and their ability to get familiar with the product concept so quickly. It acted as a catalyst to take our design to the next level and get more eyes on our product.",
+  },
+  {
+    id: 7,
+    image: Demo,
+    name: "Jane Cooper",
+    title: "CEO, ABC Corporation",
+    testimonial:
+      "We had an incredible experience working with Rootlogic and were impressed they made such a big difference in only three weeks. Our team is so grateful for the wonderful improvements they made and their ability to get familiar with the product concept so quickly. It acted as a catalyst to take our design to the next level and get more eyes on our product.",
+  },
+  {
+    id: 8,
+    image: Demo,
+    name: "Jane Cooper",
+    title: "CEO, ABC Corporation",
+    testimonial:
+      "We had an incredible experience working with Rootlogic...... on our product.",
+  },
+];
