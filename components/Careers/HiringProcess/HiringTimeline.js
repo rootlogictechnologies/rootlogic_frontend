@@ -1,6 +1,7 @@
+import Image from "next/image";
+
 // Assets
 import Check from "assets/Services/Check.svg";
-import Image from "next/image";
 
 function HiringTimeline({ list }) {
   return (

@@ -25,6 +25,7 @@ export default function AboutUs() {
         heading="Who are we?"
         description="Rootlogic is a technology solutions company building cool stuff for the new generation. With a well defined product development strategy, we can be your trusted partners in creating solutions leveraging the rapidly evolving technology landscape."
       />
+
       <div className="mx-auto px-7 lg:px-8 py-12 md:py-20 max-w-6xl">
         <div className="w-full flex flex-col items-center space-y-7 md:space-y-11">
           <div className="w-full flex flex-col md:flex-row items-start justify-between md:space-x-7 space-y-5 md:space-y-0">
@@ -53,17 +54,24 @@ export default function AboutUs() {
           </div>
         </div>
       </div>
+
       <GridSection
         heading="Values that define Rootlogic and help us drive Delivery"
         bgColor="bg-rl-red-opacity"
         list={aboutUsList}
         textColor="text-rl-dark-grey"
       />
+
       <Teams heading="Our Squad" list={ourSquad} />
+
       <Teams heading="Mentors" list={mentors} />
+
       <OurPartners />
+
       <WhyRootLogic />
+
       <CaseStudies list={CaseStudiesData} />
+
       <ContactUsCTA />
     </div>
   );

@@ -1,12 +1,15 @@
+// Components
+
 import ContactUsCTA from "components/Common/ContactUsCTA";
 import PageBanner from "components/Common/PageBanner";
-
-import Banner from "assets/Banner/services.png";
 import ServicesImage from "components/OurServices/ServicesImage";
 import ServicesDetails from "components/OurServices/ServicesDetails";
 import ServicesPoints from "components/OurServices/ServicesPoints";
 import TechUsed from "components/OurServices/TechUsed";
 import TwoColumnGrid from "components/Common/TwoColumnGrid";
+
+// Assets
+import Banner from "assets/Banner/services.png";
 
 //Utils
 import { executionProcess } from "helpers/Data";
@@ -48,11 +51,13 @@ export default function Services() {
           );
         })}
       </div>
+
       <TwoColumnGrid
         heading="Our Execution Process"
         list={executionProcess}
         cssClass="md:grid-flow-col"
       />
+
       <ContactUsCTA />
     </div>
   );

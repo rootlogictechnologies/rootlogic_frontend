@@ -1,4 +1,6 @@
 import Image from "next/image";
+
+// Component
 import Heading from "../Heading";
 
 export default function PageBanner({ image, heading = "", description = "" }) {

@@ -14,7 +14,9 @@ export default function Home() {
   return (
     <div>
       <HeroSection />
+
       <CustomerList />
+
       <GridSection
         heading="Our Services"
         bgColor="bg-rl-dark-grey"
@@ -23,8 +25,11 @@ export default function Home() {
         textColor="text-white"
         cardHeight="h-48 smd:h-278px"
       />
+
       <Solutions />
+
       <TestimonialsSection testimonials={testimonials} />
+
       <ContactUsCTA />
     </div>
   );

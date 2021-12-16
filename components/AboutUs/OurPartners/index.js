@@ -6,7 +6,7 @@ import Image from "next/image";
 // Component
 import Heading from "components/Common/Heading";
 
-// Logos
+// Partners' Logos
 import CaaryaLogo from "assets/Logo/CaaryaLogo.svg";
 import Synctatic from "assets/Logo/Synctatic.svg";
 import DigitalPi from "assets/Logo/DigitalPi.svg";

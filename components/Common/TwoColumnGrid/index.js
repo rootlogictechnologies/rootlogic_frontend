@@ -1,4 +1,4 @@
-// Component
+// Components
 import Heading from "../Heading";
 import Card from "./Card";
 

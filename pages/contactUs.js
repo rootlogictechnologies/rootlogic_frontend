@@ -15,7 +15,9 @@ export default function ContactUs() {
         description="Questions? Comments? We’d love to hear from you. Please don’t hesitate to get in touch.
 Complete the form below so we can direct your inquiry to the right team."
       />
+
       <ContactForm />
+
       <ContactInfo />
     </div>
   );

@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { Disclosure, Transition } from "@headlessui/react";
 import { MinusIcon, PlusIcon } from "@heroicons/react/solid";
+
+// Component
 import HiringModal from "components/Common/Modals/HiringModal";
-import { useState } from "react";
 
 function Openings({ title, description, experience, type, location, link }) {
   const [modalOpen, setModalOpen] = useState(false);
