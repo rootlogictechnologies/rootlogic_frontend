@@ -108,3 +108,114 @@ header {
 input:focus {
   --tw-ring-color: transparent !important;
 }
+
+/* CSS for World Map Tooltips */
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+}
+.contain {
+  width: 90%;
+  max-width: 1440px;
+  margin: 0 auto;
+  position: relative;
+}
+.contain .map {
+  height: 100%;
+  width: 100%;
+}
+.all-tooltip {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.tooltip-content {
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 0px 20px #00000020;
+  padding: 15px;
+  border-radius: 8px;
+  width: 90vw;
+  max-width: 300px;
+  opacity: 0;
+  pointer-events: none;
+  /* left: -50%; */
+  z-index: 2;
+}
+.tooltip-content .arrow {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border: 10px solid transparent;
+  border-bottom-color: #fff;
+  bottom: -40px;
+  left: 50%;
+  transform: translate(-50%, -100%) rotate(180deg);
+}
+.pin {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 80%;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.pin:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  animation: puls-effect 1s ease infinite;
+}
+.tooltip.active .tooltip-content {
+  opacity: 1;
+  pointer-events: all;
+  display: block;
+}
+
+.tooltip-1 {
+  position: absolute;
+  top: 43.5%;
+  right: 29.5%;
+}
+
+@media only screen and (max-width: 1040px) {
+  .tooltip-1 {
+    position: absolute;
+    top: 38%;
+    right: 29.5%;
+  }
+}
+
+@media only screen and (max-width: 940px) {
+  .tooltip-1 {
+    position: absolute;
+    top: 34%;
+    right: 29.5%;
+  }
+}
+
+@media only screen and (max-width: 840px) {
+  .tooltip-1 {
+    position: absolute;
+    top: 32%;
+    right: 29.5%;
+  }
+}
+
+@media only screen and (max-width: 790px) {
+  .tooltip-1 {
+    position: absolute;
+    top: 30%;
+    right: 29.5%;
+  }
+}

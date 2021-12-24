@@ -5,6 +5,7 @@ import ContactForm from "components/Contact/ContactForm";
 
 // Assets
 import Banner from "assets/Banner/contact.png";
+import WorldMap from "components/Contact/Map";
 
 export default function ContactUs() {
   return (
@@ -17,6 +18,8 @@ Complete the form below so we can direct your inquiry to the right team."
       />
 
       <ContactForm />
+
+      <WorldMap />
 
       <ContactInfo />
     </div>
