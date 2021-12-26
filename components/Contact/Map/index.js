@@ -114,51 +114,52 @@ function WorldMap() {
         </div>
       </div>
       <div className="block md:hidden w-full">
-        <Image
+        {/* <Image
           src={WorldMapMobileSVG}
           alt="World Map"
           className="w-full"
           layout="responsive"
-        />
-        <div className="w-full max-w-xs mx-auto">
-          <Slider {...settings}>
-            <div class="my-4 p-4">
-              <div className="bg-white p-3 rounded-lg shadow-md ">
-                <h1 className="font-poppins text-xl leading-8 font-semibold text-rl-dark-grey">
-                  India
-                </h1>
-                <p className="font-poppins font-normal text-xs leading-4 text-rl-dark-grey mt-2">
-                  301, Level 3, Inani House, Lotus Heights, Plot No 264, Kavuri
-                  Hills, Madhapur, Hyderabad, <br />
-                  Telangana - 500033, India
-                </p>
-              </div>
+        /> */}
+        {/* <div className="w-full max-w-xs mx-auto"> */}
+        <div className="w-full mx-auto">
+          {/* <Slider {...settings}> */}
+          <div class="my-4 p-4">
+            <div className="bg-white p-3 rounded-lg shadow-md ">
+              <h1 className="font-poppins text-xl leading-8 font-semibold text-rl-dark-grey">
+                India
+              </h1>
+              <p className="font-poppins font-normal text-xs leading-4 text-rl-dark-grey mt-2">
+                301, Level 3, Inani House, Lotus Heights, Plot No 264, Kavuri
+                Hills, Madhapur, Hyderabad, <br />
+                Telangana - 500033, India
+              </p>
             </div>
-            <div class="my-4 p-4">
-              <div className="bg-white p-3 rounded-lg shadow-md ">
-                <h1 className="font-poppins text-xl leading-8 font-semibold text-rl-dark-grey">
-                  India
-                </h1>
-                <p className="font-poppins font-normal text-xs leading-4 text-rl-dark-grey mt-2">
-                  301, Level 3, Inani House, Lotus Heights, Plot No 264, Kavuri
-                  Hills, Madhapur, Hyderabad, <br />
-                  Telangana - 500033, India
-                </p>
-              </div>
+          </div>
+          <div class="my-4 p-4">
+            <div className="bg-white p-3 rounded-lg shadow-md ">
+              <h1 className="font-poppins text-xl leading-8 font-semibold text-rl-dark-grey">
+                India
+              </h1>
+              <p className="font-poppins font-normal text-xs leading-4 text-rl-dark-grey mt-2">
+                301, Level 3, Inani House, Lotus Heights, Plot No 264, Kavuri
+                Hills, Madhapur, Hyderabad, <br />
+                Telangana - 500033, India
+              </p>
             </div>
-            <div class="my-4 p-4">
-              <div className="bg-white p-3 rounded-lg shadow-md ">
-                <h1 className="font-poppins text-xl leading-8 font-semibold text-rl-dark-grey">
-                  India
-                </h1>
-                <p className="font-poppins font-normal text-xs leading-4 text-rl-dark-grey mt-2">
-                  301, Level 3, Inani House, Lotus Heights, Plot No 264, Kavuri
-                  Hills, Madhapur, Hyderabad, <br />
-                  Telangana - 500033, India
-                </p>
-              </div>
+          </div>
+          <div class="my-4 p-4">
+            <div className="bg-white p-3 rounded-lg shadow-md ">
+              <h1 className="font-poppins text-xl leading-8 font-semibold text-rl-dark-grey">
+                India
+              </h1>
+              <p className="font-poppins font-normal text-xs leading-4 text-rl-dark-grey mt-2">
+                301, Level 3, Inani House, Lotus Heights, Plot No 264, Kavuri
+                Hills, Madhapur, Hyderabad, <br />
+                Telangana - 500033, India
+              </p>
             </div>
-          </Slider>
+          </div>
+          {/* </Slider> */}
         </div>
       </div>
     </div>

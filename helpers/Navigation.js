@@ -4,4 +4,5 @@ export const navigation = [
   { name: "Services", path: "/services" },
   { name: "Blogs", path: "http://blog.rootlogic.tech/", newTab: true },
   { name: "Careers", path: "/careers" },
+  { name: "Contact Us", path: "/contactUs" },
 ];
