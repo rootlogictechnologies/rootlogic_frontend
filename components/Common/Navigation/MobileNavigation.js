@@ -33,6 +33,7 @@ export default function MobileNavigation({ setMobileMenuOpen }) {
           <Fragment key={item.name}>
             <Link href={`${item.path}`}>
               <a
+                target={nav.newTab ? "_blank" : ""}
                 onClick={() => setMobileMenuOpen(false)}
                 className="block rounded-md py-2 px-3 font-bold text-white text-4xl"
               >

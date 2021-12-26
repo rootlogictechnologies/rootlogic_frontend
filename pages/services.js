@@ -27,7 +27,7 @@ export default function Services() {
       <div className="mx-auto px-7 lg:px-8 py-12 md:py-20 max-w-6xl space-y-8">
         {serviceDetails.map((item, index) => {
           return (
-            <div className="eachservicewithtech" key={index}>
+            <div className="eachservicewithtech" key={index} id={item.id}>
               <div
                 className={`servicedetails w-full flex flex-col bg-services-graphic mlg:${
                   index % 2 == 0 ? "flex-row" : "flex-row-reverse"

@@ -12,6 +12,7 @@ function DesktopNavigation() {
         return (
           <Link href={`${nav.path}`} key={index}>
             <a
+              target={nav.newTab ? "_blank" : ""}
               className={`${
                 route.route == nav.path ? "text-rl-red" : "text-rl-dark-grey"
               } font-semibold text-sm cursor-pointer transform transition hover:scale-105 duration-300 ease-in-out`}

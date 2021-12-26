@@ -10,8 +10,13 @@ export default function NavList({ heading = "", list = [] }) {
             key={item.name}
             className="cursor-pointer transform transition hover:scale-105 duration-300 ease-in-out"
           >
-            <Link href={item.href}>
-              <a className="text-sm opacity-60 tracking-wide">{item.name}</a>
+            <Link href={`${item.href}`} key={item.name}>
+              <a
+                target={item.newTab ? "_blank" : ""}
+                className="text-sm opacity-60 tracking-wide"
+              >
+                {item.name}
+              </a>
             </Link>
           </li>
         ))}

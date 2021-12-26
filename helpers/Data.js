@@ -111,6 +111,7 @@ export const aboutUsList = [
 
 export const serviceDetails = [
   {
+    id: 1,
     heading: "Full-stack Web Development",
     description:
       "Our full stack web development services with our expertise in developing dynamic web applications enable you to transform your ideas into reality and reach your business goals faster.",
@@ -126,6 +127,7 @@ export const serviceDetails = [
     showTech: true,
   },
   {
+    id: 2,
     heading: "Mobile App development",
     description:
       "Our expertise in Mobile app development will help you create apps that your customers love. With our mobile app strategy, we can help you launch Native, Hybrid or custom apps that offer a rich mobile experience.",
@@ -141,6 +143,7 @@ export const serviceDetails = [
     showTech: true,
   },
   {
+    id: 3,
     heading: "Digital Transformation",
     description:
       "With our Digital transformation services, we help integrate digital technology into all areas of your business, adapt to changing circumstances, innovate and deliver value to your customers.",
@@ -156,6 +159,7 @@ export const serviceDetails = [
     showTech: true,
   },
   {
+    id: 4,
     heading: "CMS development",
     description:
       "With expertise in developing dynamic and scalable content management systems, we cater to your unique content management requirements, ensuring smooth functioning with enhanced workflow processes.",
@@ -171,6 +175,7 @@ export const serviceDetails = [
     showTech: true,
   },
   {
+    id: 5,
     heading: "eCommerce Solutions",
     description:
       "We take your business to new heights with our custom ecommerce solutions. Our outcome focussed, data-driven approach covers various aspects of eCommerce and the associated feature set.",
@@ -186,6 +191,7 @@ export const serviceDetails = [
     showTech: true,
   },
   {
+    id: 6,
     heading: "Managed Services & Staffing",
     description:
       "Hire a team of professionals with the right skills and knowledge that can be your perfect technology partner. Our managed services and staffing models are designed for businesses of all types and sizes. We can work with you and handle the technology heavy lifting ensuring your desired outcomes while you focus on your core business strategies.",
