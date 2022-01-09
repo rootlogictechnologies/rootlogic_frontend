@@ -32,6 +32,9 @@ module.exports = {
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
       },
+      margin: {
+        19: "72px",
+      },
       colors: {
         "rl-red": "#FF1D31",
         "rl-red-gradient":

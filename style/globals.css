@@ -219,3 +219,23 @@ input:focus {
     right: 29.5%;
   }
 }
+.navigation-bar {
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 20;
+}
+
+.is-hidden {
+  opacity: 0;
+  -webkit-transform: translate(0, -60px);
+  -webkit-transition: -webkit-transform 0.2s, background 0.3s, color 0.3s,
+    opacity 0 0.3s;
+}
+
+.is-visible {
+  opacity: 1;
+  -webkit-transform: translate(0, 0);
+  -webkit-transition: -webkit-transform 0.2s, background 0.3s, color 0.3s;
+}

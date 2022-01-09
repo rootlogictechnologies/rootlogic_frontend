@@ -6,7 +6,7 @@ function Card({ title, description, icon, index }) {
       <div className="sm:flex-shrink-0">
         <div className="flow-root">
           <div className="w-11 h-11 md:w-16 md:h-16 bg-rl-light flex flex-row items-center justify-center rounded-full text-sm md:text-2xl font-bold leading-7 text-rl-dark-grey">
-            <div className="w-4 h-4 md:w-8 md:h-8">
+            <div className="w-4 h-4 md:w-8 md:h-8 text-center">
               {icon ? (
                 <Image src={icon} layout="responsive" alt="Illustration" />
               ) : (

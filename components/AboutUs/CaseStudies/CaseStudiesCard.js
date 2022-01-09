@@ -1,10 +1,16 @@
 import Image from "next/image";
+// Case Studies Demo Image
+import DemoCase from "assets/DemoCases.png";
 
-function CaseStudiesCard({ image, title, description }) {
+function CaseStudiesCard({ media, title, description }) {
   return (
     <div className="group relative w-260px md:w-350px mx-auto">
       <div className="w-full h-260px md:h-350px bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:aspect-none">
-        <Image src={image} alt="Case Study" layout="fixed" />
+        <Image
+          src={media?.data?.attributes?.url || DemoCase}
+          alt="Case Study"
+          layout="fixed"
+        />
       </div>
       <div className="mt-4 space-y-3">
         <h3 className="font-semibold text-md md:text-xl leading-7 md:leading-9 text-rl-dark-grey">

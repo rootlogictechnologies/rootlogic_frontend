@@ -10,7 +10,10 @@ import TestimonialsSection from "components/Landing/Testimonials";
 import { services } from "helpers/Data";
 import { testimonials } from "helpers/Data";
 
-export default function Home() {
+// APIs
+import { getPageData } from "apis";
+
+export default function Home({ data }) {
   return (
     <div>
       <HeroSection />
@@ -33,4 +36,19 @@ export default function Home() {
       <ContactUsCTA />
     </div>
   );
+}
+
+export async function getServerSideProps() {
+  const res = await getPageData("HomePage");
+  const data = res.data;
+
+  if (!data) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: { data },
+  };
 }

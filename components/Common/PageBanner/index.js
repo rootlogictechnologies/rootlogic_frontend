@@ -3,13 +3,15 @@ import Image from "next/image";
 // Component
 import Heading from "../Heading";
 
+import img from "assets/Banner/about.png";
+
 export default function PageBanner({ image, heading = "", description = "" }) {
   return (
     <div>
       <div className="w-full">
         <Image
           className="h-32 md:h-80 w-full object-cover"
-          src={image}
+          src={image?.url || img}
           layout="responsive"
           alt="Page Banner"
         />

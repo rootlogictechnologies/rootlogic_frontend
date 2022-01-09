@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -14,7 +16,19 @@ import DigitalPi from "assets/Logo/DigitalPi.svg";
 // Icons
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/outline";
 
-function OurPartners() {
+function OurPartners({ heading, list }) {
+  const [LogoList, setLogoList] = useState([]);
+
+  useEffect(() => {
+    let temp = [];
+    list?.data &&
+      list?.data.length > 0 &&
+      list?.data.map((item) => {
+        temp.push(item?.attributes?.media?.data?.attributes);
+      });
+    setLogoList(temp);
+  }, [list]);
+
   const settings = {
     dots: false,
     infinite: true,
@@ -56,39 +70,27 @@ function OurPartners() {
   return (
     <div className="mx-auto px-7 lg:px-8 py-12 md:py-20 max-w-6xl">
       <div className="w-full flex flex-col items-center space-y-7 md:space-y-10">
-        <Heading heading="Our Partners" />
+        <Heading heading={heading} />
         <div className="w-full border-t border-b border-rl-light py-11">
           <Slider {...settings}>
-            <div className="">
-              <div className="h-10 w-36 pt-2 mx-auto">
-                <Image
-                  src={CaaryaLogo}
-                  alt="Caarya Logo"
-                  layout="fixed"
-                  className="mx-auto"
-                />
-              </div>
-            </div>
-            <div className="">
-              <div className="h-10 w-36 pt-2 mx-auto">
-                <Image
-                  src={Synctatic}
-                  alt="Synctatic Logo"
-                  layout="fixed"
-                  className="mx-auto"
-                />
-              </div>
-            </div>
-            <div className="">
-              <div className="h-10 w-36 pt-2 mx-auto">
-                <Image
-                  src={DigitalPi}
-                  alt="DigitalPi Logo"
-                  layout="fixed"
-                  className="mx-auto"
-                />
-              </div>
-            </div>
+            {LogoList &&
+              LogoList.length > 0 &&
+              LogoList.map((item) => {
+                return (
+                  <div className="h-10 w-36">
+                    <div className="h-10 w-36 pt-2 mx-auto">
+                      <Image
+                        src={item?.url || CaaryaLogo}
+                        alt="Caarya Logo"
+                        layout="fixed"
+                        width="144px"
+                        height="40px"
+                        className="mx-auto"
+                      />
+                    </div>
+                  </div>
+                );
+              })}
           </Slider>
         </div>
       </div>

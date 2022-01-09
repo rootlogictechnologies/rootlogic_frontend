@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -9,7 +10,18 @@ import CaseStudiesCard from "./CaseStudiesCard";
 // Icons
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/outline";
 
-function CaseStudies({ list = [] }) {
+function CaseStudies({ heading, data }) {
+  const [list, setList] = useState([]);
+
+  useEffect(() => {
+    let temp = [];
+    data?.case_studies?.data &&
+      data?.case_studies?.data.length > 0 &&
+      data?.case_studies?.data.map((item) => {
+        temp.push(item?.attributes);
+      });
+    setList(temp);
+  }, [data]);
   const settings = {
     dots: false,
     infinite: true,
@@ -55,7 +67,7 @@ function CaseStudies({ list = [] }) {
   return (
     <div className="ml-3 mr-10 px-7 lg:px-8 py-12 md:py-20 max-w-6xl xl:mx-auto">
       <div className="w-full flex flex-col items-center space-y-8 md:space-y-10">
-        <Heading heading="Case Studies" />
+        <Heading heading={heading} />
 
         <div className="w-full">
           <Slider {...settings}>

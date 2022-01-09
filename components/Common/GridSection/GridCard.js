@@ -1,14 +1,18 @@
 import Image from "next/image";
 
-function GridCard({ icon, title, description, cardHeight }) {
+function GridCard({ media, title, description, cardHeight }) {
   return (
     <div key={title}>
       <div
         className={`mx-auto w-full col-span-1 bg-white py-7 md:py-10 px-5 md:px-8 rounded-xl flex flex-col items-start space-y-6 md:space-y-7 max-w-350px ${cardHeight}`}
       >
-        {icon && (
+        {media?.data && (
           <div className="w-6 h-6">
-            <Image src={icon} layout="fixed" alt="Illustration" />
+            <Image
+              src={media?.data?.attributes?.url}
+              layout="fixed"
+              alt="Illustration"
+            />
           </div>
         )}
         <div className="flex flex-col items-start space-y-2 md:space-y-3">
