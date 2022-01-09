@@ -1,14 +1,20 @@
 import Image from "next/image";
 
-function Card({ title, description, icon, index }) {
+function Card({ title, description, media, index }) {
   return (
     <div key={index} className="flex flex-row items-start">
       <div className="sm:flex-shrink-0">
         <div className="flow-root">
           <div className="w-11 h-11 md:w-16 md:h-16 bg-rl-light flex flex-row items-center justify-center rounded-full text-sm md:text-2xl font-bold leading-7 text-rl-dark-grey">
             <div className="w-4 h-4 md:w-8 md:h-8 text-center">
-              {icon ? (
-                <Image src={icon} layout="responsive" alt="Illustration" />
+              {media?.data ? (
+                <Image
+                  src={media?.data?.attributes?.url}
+                  layout="responsive"
+                  width="40px"
+                  height="40px"
+                  alt="Illustration"
+                />
               ) : (
                 index + 1
               )}
