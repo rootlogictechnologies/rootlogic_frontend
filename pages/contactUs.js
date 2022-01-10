@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 // Components
 import PageBanner from "components/Common/PageBanner";
 import ContactInfo from "components/Contact/ContactInfo";
@@ -8,9 +10,23 @@ import Banner from "assets/Banner/contact.png";
 import WorldMap from "components/Contact/Map";
 
 // APIs
-import { getSectionData } from "apis";
+import { getSectionData, contactForm } from "apis";
+import LocationsCards from "components/Contact/Map/LocationsCards";
 
-export default function ContactUs({ pageBanner, contact, data }) {
+export default function ContactUs({ pageBanner, contact, locations, data }) {
+  const [formSubmitted, setFormSubmitted] = useState(false);
+
+  const submitContact = async (val) => {
+    try {
+      const res = await contactForm({ data: val });
+      if (res.data?.data) {
+        setFormSubmitted(true);
+      }
+    } catch (e) {
+      console.error("Error in Contact Form", e);
+    }
+  };
+
   return (
     <div>
       <PageBanner
@@ -24,9 +40,19 @@ export default function ContactUs({ pageBanner, contact, data }) {
           "Questions? Comments? We’d love to hear from you. Please don’t hesitate to get in touch. Complete the form below so we can direct your inquiry to the right team."
         }
       />
-      <ContactForm />
+      <ContactForm
+        formSubmitted={formSubmitted}
+        setFormSubmitted={(val) => {
+          setFormSubmitted(val);
+        }}
+        onSubmit={(val) => {
+          submitContact(val);
+        }}
+      />
 
       <WorldMap />
+
+      <LocationsCards data={locations?.attributes} />
 
       <ContactInfo data={contact?.attributes} />
     </div>
@@ -34,7 +60,7 @@ export default function ContactUs({ pageBanner, contact, data }) {
 }
 
 export async function getServerSideProps() {
-  let queries = ["teamElements"];
+  let queries = ["teamElements", "source"];
   const res = await getSectionData("Contact", queries);
   const { data } = res.data;
 
@@ -48,15 +74,10 @@ export async function getServerSideProps() {
     data.find((e) => e?.attributes?.webComponent == "PageBanner") || {};
   const contact =
     data.find((e) => e?.attributes?.webComponent == "ContactInfo") || {};
-  // const rootster = data.find(
-  //   (e) => e?.attributes?.webComponent == "RootsterDNA"
-  // );
-  // const team = data.find((e) => e?.attributes?.webComponent == "TwoColumnGrid");
-  // const hiringProcess = data.find(
-  //   (e) => e?.attributes?.webComponent == "HiringProcess"
-  // );
+  const locations =
+    data.find((e) => e?.attributes?.webComponent == "Locations") || {};
 
   return {
-    props: { pageBanner, contact, data },
+    props: { pageBanner, contact, locations, data },
   };
 }

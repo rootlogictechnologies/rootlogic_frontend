@@ -1,13 +1,15 @@
 import Image from "next/image";
 
-function SolutionsCard({ illustration, description }) {
+function SolutionsCard({ media, description }) {
   return (
     <div className="max-w-xs col-span-1 flex flex-col items-center space-y-7 mx-auto">
       <div className="w-52 h-40">
         <Image
-          src={illustration}
+          src={media?.data?.attributes?.url}
           alt="Illustration"
           className="mx-auto w-full"
+          width="208px"
+          height="160px"
           layout="fixed"
         />
       </div>

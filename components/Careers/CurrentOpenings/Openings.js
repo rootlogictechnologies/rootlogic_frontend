@@ -5,7 +5,7 @@ import { MinusIcon, PlusIcon } from "@heroicons/react/solid";
 // Component
 import HiringModal from "components/Common/Modals/HiringModal";
 
-function Openings({ title, description, experience, type, location, link }) {
+function Openings({ position, description, minYearGap, type, location, link }) {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
@@ -18,16 +18,16 @@ function Openings({ title, description, experience, type, location, link }) {
           <>
             <div className="w-full flex flex-row items-center justify-between">
               <h1 className="font-semibold text-rl-dark-grey text-sm md:text-md leading-5 md:leading-7">
-                {title}
+                {position}
               </h1>
               <div className="flex flex-row items-center">
                 {open && (
                   <div className="md:flex flex-row items-center hidden text-rl-dark-grey font-normal text-base leading-6">
-                    <div className="pr-3">{experience}</div>
+                    <div className="pr-3">{`${minYearGap} Yrs`}</div>
                     <vr className="w-0.25 h-4 bg-rl-dark-grey" />
                     <div className="px-3">{type}</div>
                     <vr className="w-0.25 h-4 bg-rl-dark-grey" />
-                    <div className="pl-3">{location}</div>
+                    <div className="pl-3">{location?.location}</div>
                   </div>
                 )}
                 <Disclosure.Button className="ml-12">
@@ -41,11 +41,11 @@ function Openings({ title, description, experience, type, location, link }) {
             </div>
             {open && (
               <div className="flex flex-row items-center md:hidden mt-3 text-xs font-normal leading-4 text-rl-dark-grey">
-                <div className="pr-3">{experience}</div>
+                <div className="pr-3">{`${minYearGap} Yrs`}</div>
                 <vr className="w-0.25 h-4 bg-rl-dark-grey" />
                 <div className="px-3">{type}</div>
                 <vr className="w-0.25 h-4 bg-rl-dark-grey" />
-                <div className="pl-3">{location}</div>
+                <div className="pl-3">{location?.location}</div>
               </div>
             )}
             <Transition

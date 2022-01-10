@@ -7,9 +7,7 @@ function ServicesPoints({ points }) {
   return (
     <div className="w-full md:w-10/12 mx-auto py-16 md:px-4">
       <div className="w-full flex flex-row flex-wrap">
-        {" "}
-        {console.log(points)}
-        {/* {points.map((item) => {
+        {points.map((item) => {
           return (
             <div className="md:px-2 py-3 md:py-4 w-full md:w-1/2 flex flex-row items-center justify-start space-x-2">
               <div className="w-4 h-4">
@@ -20,7 +18,7 @@ function ServicesPoints({ points }) {
               </p>
             </div>
           );
-        })} */}
+        })}
       </div>
     </div>
   );

@@ -71,7 +71,6 @@ function Testimonial({ data }) {
           {selectedTestimonial?.description}
         </div>
       </div>
-      {console.log(list)}
       <div className="mt-14">
         <Slider {...settings}>
           {list &&

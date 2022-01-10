@@ -22,6 +22,7 @@ export default function Careers({
   rootster,
   team,
   hiringProcess,
+  currentOpenings,
   data,
 }) {
   return (
@@ -44,26 +45,26 @@ export default function Careers({
         heading={team?.attributes?.heroHeading}
         data={team?.attributes}
       />
-
       <RootsterDNA
         heading={rootster?.attributes?.heroHeading}
         data={rootster?.attributes}
       />
-
       <HiringProcess
         heading={hiringProcess?.attributes?.heroHeading}
         data={hiringProcess?.attributes}
       />
-
       <ContactUs data={contact?.attributes} />
 
-      <CurrentOpenings list={currentOpenings} />
+      <CurrentOpenings
+        heading={currentOpenings?.attributes?.heroHeading}
+        data={currentOpenings?.attributes}
+      />
     </div>
   );
 }
 
 export async function getServerSideProps() {
-  let queries = ["teamElements"];
+  let queries = ["teamElements", "jobOpenings"];
   const res = await getSectionData("Careers", queries);
   const { data } = res.data;
 
@@ -73,7 +74,6 @@ export async function getServerSideProps() {
     };
   }
 
-  console.log(data);
   const pageBanner =
     data.find((e) => e?.attributes?.webComponent == "PageBanner") || {};
   const contact =
@@ -84,8 +84,18 @@ export async function getServerSideProps() {
     data.find((e) => e?.attributes?.webComponent == "TwoColumnGrid") || {};
   const hiringProcess =
     data.find((e) => e?.attributes?.webComponent == "HiringProcess") || {};
+  const currentOpenings =
+    data.find((e) => e?.attributes?.webComponent == "CurrentOpenings") || {};
 
   return {
-    props: { pageBanner, contact, rootster, team, hiringProcess, data },
+    props: {
+      pageBanner,
+      contact,
+      rootster,
+      team,
+      hiringProcess,
+      currentOpenings,
+      data,
+    },
   };
 }

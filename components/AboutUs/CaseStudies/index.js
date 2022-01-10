@@ -25,7 +25,7 @@ function CaseStudies({ heading, data }) {
   const settings = {
     dots: false,
     infinite: true,
-    slidesToShow: 3,
+    slidesToShow: list.length > 2 ? 3 : list.length || 1,
     slidesToScroll: 1,
     cssEase: "linear",
     prevArrow: (

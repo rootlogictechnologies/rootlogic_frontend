@@ -5,11 +5,11 @@ import "slick-carousel/slick/slick-theme.css";
 // Component
 import Logos from "components/Common/Logos";
 
-function LogosList() {
+function LogosList({ list }) {
   const settings = {
     dots: false,
     infinite: true,
-    slidesToShow: 5,
+    slidesToShow: Math.min(list.length, 5),
     slidesToScroll: 1,
     autoplay: true,
     speed: 2000,
@@ -19,7 +19,7 @@ function LogosList() {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: Math.min(list.length, 4),
           slidesToScroll: 1,
           infinite: true,
           dots: true,
@@ -28,7 +28,7 @@ function LogosList() {
       {
         breakpoint: 820,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: Math.min(list.length, 3),
           slidesToScroll: 1,
           infinite: true,
           dots: true,
@@ -37,7 +37,7 @@ function LogosList() {
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: Math.min(list.length, 2),
           slidesToScroll: 1,
           infinite: true,
           dots: true,
@@ -60,9 +60,11 @@ function LogosList() {
       <div className="py-12 px-7 lg:px-8">
         <div className="grid grid-cols-1">
           <Slider {...settings}>
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item, index) => {
-              return <Logos image={item} index={index} />;
-            })}
+            {list &&
+              list.length > 0 &&
+              list.map((item, index) => {
+                return <Logos image={item?.url} index={index} />;
+              })}
           </Slider>
         </div>
       </div>

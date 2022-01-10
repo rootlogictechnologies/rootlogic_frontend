@@ -18,7 +18,7 @@ import { executionProcess } from "helpers/Data";
 import { serviceDetails } from "helpers/Data";
 
 // APIs
-import { getSectionData } from "apis";
+import { getSectionData, getServices } from "apis";
 
 export default function Services({
   pageBanner,
@@ -68,7 +68,7 @@ export default function Services({
                       index % 2 !== 0 ? "mlg:ml-20" : ""
                     }`}
                   >
-                    <ServicesImage {...item} />
+                    <ServicesImage images={item?.media?.data} />
                   </div>
                   <div
                     className={`mlg:w-1/2 ${index % 2 == 0 ? "mlg:ml-20" : ""}`}
@@ -77,9 +77,14 @@ export default function Services({
                   </div>
                 </div>
                 {item.subServices?.subServices && (
-                  <ServicesPoints points={item.subServices?.subServices} />
+                  <ServicesPoints
+                    points={item.subServices?.subServices.split(",")}
+                  />
                 )}
-                {item.showTech && <TechUsed {...item} />}
+                {item?.techStacks?.data &&
+                  item?.techStacks?.data.length > 0 && (
+                    <TechUsed data={item?.techStacks?.data} />
+                  )}
                 <hr className="mt-0.5" />
               </div>
             );
@@ -105,7 +110,6 @@ export async function getServerSideProps() {
       notFound: true,
     };
   }
-  console.log(data);
   const pageBanner =
     data.find((e) => e?.attributes?.webComponent == "PageBanner") || {};
   const process =
@@ -113,7 +117,7 @@ export async function getServerSideProps() {
   const cta =
     data.find((e) => e?.attributes?.webComponent == "ContactUsCTA") || {};
   const allServices =
-    data.find((e) => e?.attributes?.webComponent == "ServicesInfo") || {};
+    data.find((e) => e?.attributes?.webComponent == "PageBanner") || {};
 
   return {
     props: {

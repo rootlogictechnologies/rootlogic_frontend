@@ -13,21 +13,36 @@ import { testimonials } from "helpers/Data";
 // APIs
 import { getPageData, getSectionData } from "apis";
 
-export default function Home({ heroSection, testimonialsSection, cta, data }) {
+export default function Home({
+  heroSection,
+  testimonialsSection,
+  cta,
+  services,
+  solutions,
+  customers,
+  data,
+}) {
   return (
     <div>
-      {console.log(testimonialsSection)}
       <HeroSection data={heroSection?.attributes} />
-      <CustomerList />
+      <CustomerList
+        heading={customers?.attributes?.heroHeading}
+        data={customers?.attributes}
+      />
       <GridSection
-        heading="Our Services"
+        heading={services?.attributes?.heroHeading}
         bgColor="bg-rl-dark-grey"
-        list={services}
+        type="services"
+        data={services?.attributes}
         isCTA={true}
         textColor="text-white"
         cardHeight="h-48 smd:h-278px"
       />
-      <Solutions />
+
+      <Solutions
+        heading={solutions?.attributes?.heroHeading}
+        data={solutions?.attributes}
+      />
       <TestimonialsSection
         heading={testimonialsSection?.attributes?.heroHeading}
         data={testimonialsSection?.attributes}
@@ -39,7 +54,7 @@ export default function Home({ heroSection, testimonialsSection, cta, data }) {
 }
 
 export async function getServerSideProps() {
-  let queries = ["teamElements", "testimonials"];
+  let queries = ["teamElements", "testimonials", "services", "solutions"];
   const res = await getSectionData("HomePage", queries);
   const { data } = res.data;
 
@@ -48,6 +63,7 @@ export async function getServerSideProps() {
       notFound: true,
     };
   }
+
   const heroSection =
     data.find((e) => e?.attributes?.webComponent == "HeroSection") || {};
   const testimonialsSection =
@@ -55,8 +71,23 @@ export async function getServerSideProps() {
     {};
   const cta =
     data.find((e) => e?.attributes?.webComponent == "ContactUsCTA") || {};
+  const services =
+    data.find((e) => e?.attributes?.webComponent == "PageBanner") || {};
+
+  const solutions =
+    data.find((e) => e?.attributes?.webComponent == "Solutions") || {};
+  const customers =
+    data.find((e) => e?.attributes?.webComponent == "CustomerList") || {};
 
   return {
-    props: { heroSection, testimonialsSection, cta, data },
+    props: {
+      heroSection,
+      testimonialsSection,
+      cta,
+      services,
+      solutions,
+      customers,
+      data,
+    },
   };
 }

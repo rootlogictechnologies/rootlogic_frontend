@@ -5,17 +5,34 @@ import Heading from "../Heading";
 // Component
 import GridCard from "./GridCard";
 
-function GridSection({ heading, bgColor, isCTA, textColor, cardHeight, data }) {
+function GridSection({
+  heading,
+  bgColor,
+  isCTA,
+  textColor,
+  cardHeight,
+  data,
+  type,
+}) {
   const [list, setList] = useState([]);
 
   useEffect(() => {
     let temp = [];
-    data?.teamElements?.data &&
-      data?.teamElements?.data.length > 0 &&
-      data?.teamElements?.data.map((item) => {
-        temp.push(item?.attributes);
-      });
-    setList(temp);
+    if (type == "services") {
+      data?.services?.data &&
+        data?.services?.data.length > 0 &&
+        data?.services?.data.map((item) => {
+          temp.push(item?.attributes);
+        });
+      setList(temp);
+    } else {
+      data?.teamElements?.data &&
+        data?.teamElements?.data.length > 0 &&
+        data?.teamElements?.data.map((item) => {
+          temp.push(item?.attributes);
+        });
+      setList(temp);
+    }
   }, [data]);
 
   return (
@@ -28,7 +45,9 @@ function GridSection({ heading, bgColor, isCTA, textColor, cardHeight, data }) {
             {list &&
               list.length > 0 &&
               list.map((item) => {
-                return <GridCard {...item} cardHeight={cardHeight} />;
+                return (
+                  <GridCard {...item} cardHeight={cardHeight} type={type} />
+                );
               })}
           </div>
 

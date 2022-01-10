@@ -10,18 +10,27 @@ export const instance = axios.create({
 export const getPageData = (page) => {
   return instance.get(`/section-datas?filters[page][$eq]=${page}`);
 };
+
 export const getSectionData = (page, queries) => {
+  let query = "";
+  if (queries.length > 0) {
+    queries.map((item) => {
+      query = query + `&populate[${item}][populate]=%2A`;
+    });
+  }
   return instance.get(
-    `/section-datas?filters[page][$eq]=${page}&populate[media]=%2A${
-      queries.includes("teamElements")
-        ? "&populate[teamElements][populate][0]=media"
-        : ""
-    }${
-      queries.includes("case_studies")
-        ? "&populate[case_studies][populate]=%2A"
-        : ""
-    }${queries.includes("services") ? "&populate[services]=%2A" : ""}${
-      queries.includes("testimonials") ? "&populate[testimonials]=%2A" : ""
-    }`
+    `/section-datas?filters[pages][title][$eq]=${page}${query}`
   );
+};
+
+export const contactForm = (body) => {
+  return instance.post(`/contact-forms`, body);
+};
+
+export const upload = (body) => {
+  return instance.post(`/upload`, body);
+};
+
+export const apply = (body) => {
+  return instance.post(`/applicants`, body);
 };
