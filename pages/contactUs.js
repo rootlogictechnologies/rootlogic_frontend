@@ -10,7 +10,7 @@ import WorldMap from "components/Contact/Map";
 // APIs
 import { getSectionData } from "apis";
 
-export default function ContactUs({ pageBanner, data }) {
+export default function ContactUs({ pageBanner, contact, data }) {
   return (
     <div>
       <PageBanner
@@ -24,18 +24,18 @@ export default function ContactUs({ pageBanner, data }) {
           "Questions? Comments? We’d love to hear from you. Please don’t hesitate to get in touch. Complete the form below so we can direct your inquiry to the right team."
         }
       />
-
       <ContactForm />
 
       <WorldMap />
 
-      <ContactInfo />
+      <ContactInfo data={contact?.attributes} />
     </div>
   );
 }
 
 export async function getServerSideProps() {
-  const res = await getSectionData("ContactUs");
+  let queries = ["teamElements"];
+  const res = await getSectionData("Contact", queries);
   const { data } = res.data;
 
   if (!data) {
@@ -44,10 +44,10 @@ export async function getServerSideProps() {
     };
   }
 
-  const pageBanner = data.find(
-    (e) => e?.attributes?.webComponent == "PageBanner"
-  );
-  // const contact = data.find((e) => e?.attributes?.webComponent == "ContactUs");
+  const pageBanner =
+    data.find((e) => e?.attributes?.webComponent == "PageBanner") || {};
+  const contact =
+    data.find((e) => e?.attributes?.webComponent == "ContactInfo") || {};
   // const rootster = data.find(
   //   (e) => e?.attributes?.webComponent == "RootsterDNA"
   // );
@@ -57,6 +57,6 @@ export async function getServerSideProps() {
   // );
 
   return {
-    props: { pageBanner, data },
+    props: { pageBanner, contact, data },
   };
 }

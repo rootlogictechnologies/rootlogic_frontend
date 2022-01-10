@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 // Components
 
 import ContactUsCTA from "components/Common/ContactUsCTA";
@@ -18,7 +20,25 @@ import { serviceDetails } from "helpers/Data";
 // APIs
 import { getSectionData } from "apis";
 
-export default function Services({ data }) {
+export default function Services({
+  pageBanner,
+  process,
+  cta,
+  data,
+  allServices,
+}) {
+  const [list, setList] = useState([]);
+
+  useEffect(() => {
+    let temp = [];
+    allServices?.attributes?.services?.data &&
+      allServices?.attributes?.services?.data.length > 0 &&
+      allServices?.attributes?.services?.data.map((item) => {
+        temp.push(item?.attributes);
+      });
+    setList(temp);
+  }, [allServices]);
+
   return (
     <div>
       <PageBanner
@@ -32,48 +52,52 @@ export default function Services({ data }) {
           "We are a technology solutions company building cool stuff for the new generation. With a well defined product development strategy, we can be your trusted partners in creating solutions leveraging the rapidly evolving technology landscape."
         }
       />
-      {console.log(data)}
       <div className="mx-auto px-7 lg:px-8 py-12 md:py-20 max-w-6xl space-y-8">
-        {serviceDetails.map((item, index) => {
-          return (
-            <div className="eachservicewithtech" key={index} id={item.id}>
-              <div
-                className={`servicedetails w-full flex flex-col bg-services-graphic mlg:${
-                  index % 2 == 0 ? "flex-row" : "flex-row-reverse"
-                } items-center justify-between`}
-              >
+        {list &&
+          list.length > 0 &&
+          list.map((item, index) => {
+            return (
+              <div className="eachservicewithtech" key={index} id={index}>
                 <div
-                  className={`mlg:w-1/2 ${index % 2 !== 0 ? "mlg:ml-20" : ""}`}
+                  className={`servicedetails w-full flex flex-col bg-services-graphic mlg:${
+                    index % 2 == 0 ? "flex-row" : "flex-row-reverse"
+                  } items-center justify-between`}
                 >
-                  <ServicesImage {...item} />
+                  <div
+                    className={`mlg:w-1/2 ${
+                      index % 2 !== 0 ? "mlg:ml-20" : ""
+                    }`}
+                  >
+                    <ServicesImage {...item} />
+                  </div>
+                  <div
+                    className={`mlg:w-1/2 ${index % 2 == 0 ? "mlg:ml-20" : ""}`}
+                  >
+                    <ServicesDetails {...item} />
+                  </div>
                 </div>
-                <div
-                  className={`mlg:w-1/2 ${index % 2 == 0 ? "mlg:ml-20" : ""}`}
-                >
-                  <ServicesDetails {...item} />
-                </div>
+                {item.subServices?.subServices && (
+                  <ServicesPoints points={item.subServices?.subServices} />
+                )}
+                {item.showTech && <TechUsed {...item} />}
+                <hr className="mt-0.5" />
               </div>
-              {item.showPoints && <ServicesPoints {...item} />}
-              {item.showTech && <TechUsed {...item} />}
-              <hr className="mt-0.5" />
-            </div>
-          );
-        })}
+            );
+          })}
       </div>
-
       <TwoColumnGrid
-        heading="Our Execution Process"
-        list={executionProcess}
+        heading={process?.attributes?.heroHeading}
+        data={process?.attributes}
         cssClass="md:grid-flow-col"
       />
-
-      <ContactUsCTA />
+      <ContactUsCTA data={cta?.attributes} />
     </div>
   );
 }
 
 export async function getServerSideProps() {
-  const res = await getSectionData("Services");
+  let queries = ["teamElements", "services"];
+  const res = await getSectionData("Services", queries);
   const { data } = res.data;
 
   if (!data) {
@@ -82,46 +106,22 @@ export async function getServerSideProps() {
     };
   }
   console.log(data);
-  // const pageBanner = data.find(
-  //   (e) => e?.attributes?.webComponent == "PageBanner"
-  // );
-  // const contactText = data.find(
-  //   (e) => e?.attributes?.webComponent == "Contacttext"
-  // );
-  // const gridSection = data.find(
-  //   (e) => e?.attributes?.webComponent == "GridSection"
-  // );
-  // const ourSquad = data.find(
-  //   (e) =>
-  //     e?.attributes?.webComponent == "Teams" && e?.attributes?.sequence == 4
-  // );
-  // const ourMentors = data.find(
-  //   (e) =>
-  //     e?.attributes?.webComponent == "Teams" && e?.attributes?.sequence == 5
-  // );
-  // const ourPartners = data.find(
-  //   (e) => e?.attributes?.webComponent == "OurPartners"
-  // );
-  // const whyRL = data.find((e) => e?.attributes?.webComponent == "WhyRootLogic");
-
-  // const caseStudies = data.find(
-  //   (e) => e?.attributes?.webComponent == "CaseStudies"
-  // );
-
-  // const cta = data.find((e) => e?.attributes?.webComponent == "ContactUsCTA");
+  const pageBanner =
+    data.find((e) => e?.attributes?.webComponent == "PageBanner") || {};
+  const process =
+    data.find((e) => e?.attributes?.webComponent == "TwoColumnGrid") || {};
+  const cta =
+    data.find((e) => e?.attributes?.webComponent == "ContactUsCTA") || {};
+  const allServices =
+    data.find((e) => e?.attributes?.webComponent == "ServicesInfo") || {};
 
   return {
     props: {
       data,
-      // pageBanner,
-      // contactText,
-      // gridSection,
-      // ourSquad,
-      // ourMentors,
-      // ourPartners,
-      // whyRL,
-      // caseStudies,
-      // cta,
+      pageBanner,
+      process,
+      cta,
+      allServices,
     },
   };
 }

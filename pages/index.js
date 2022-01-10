@@ -11,15 +11,14 @@ import { services } from "helpers/Data";
 import { testimonials } from "helpers/Data";
 
 // APIs
-import { getPageData } from "apis";
+import { getPageData, getSectionData } from "apis";
 
-export default function Home({ data }) {
+export default function Home({ heroSection, testimonialsSection, cta, data }) {
   return (
     <div>
-      <HeroSection />
-
+      {console.log(testimonialsSection)}
+      <HeroSection data={heroSection?.attributes} />
       <CustomerList />
-
       <GridSection
         heading="Our Services"
         bgColor="bg-rl-dark-grey"
@@ -28,27 +27,36 @@ export default function Home({ data }) {
         textColor="text-white"
         cardHeight="h-48 smd:h-278px"
       />
-
       <Solutions />
-
-      <TestimonialsSection testimonials={testimonials} />
-
-      <ContactUsCTA />
+      <TestimonialsSection
+        heading={testimonialsSection?.attributes?.heroHeading}
+        data={testimonialsSection?.attributes}
+        testimonials={testimonials}
+      />
+      <ContactUsCTA data={cta?.attributes} />
     </div>
   );
 }
 
 export async function getServerSideProps() {
-  const res = await getPageData("HomePage");
-  const data = res.data;
+  let queries = ["teamElements", "testimonials"];
+  const res = await getSectionData("HomePage", queries);
+  const { data } = res.data;
 
   if (!data) {
     return {
       notFound: true,
     };
   }
+  const heroSection =
+    data.find((e) => e?.attributes?.webComponent == "HeroSection") || {};
+  const testimonialsSection =
+    data.find((e) => e?.attributes?.webComponent == "TestimonialsSection") ||
+    {};
+  const cta =
+    data.find((e) => e?.attributes?.webComponent == "ContactUsCTA") || {};
 
   return {
-    props: { data },
+    props: { heroSection, testimonialsSection, cta, data },
   };
 }

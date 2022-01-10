@@ -117,7 +117,8 @@ export default function AboutUs({
 }
 
 export async function getServerSideProps() {
-  const res = await getSectionData("AboutUs");
+  let queries = ["teamElements", "case_studies"];
+  const res = await getSectionData("AboutUs", queries);
   const { data } = res.data;
 
   if (!data) {
@@ -125,33 +126,32 @@ export async function getServerSideProps() {
       notFound: true,
     };
   }
-  const pageBanner = data.find(
-    (e) => e?.attributes?.webComponent == "PageBanner"
-  );
-  const contactText = data.find(
-    (e) => e?.attributes?.webComponent == "Contacttext"
-  );
-  const gridSection = data.find(
-    (e) => e?.attributes?.webComponent == "GridSection"
-  );
-  const ourSquad = data.find(
-    (e) =>
-      e?.attributes?.webComponent == "Teams" && e?.attributes?.sequence == 4
-  );
-  const ourMentors = data.find(
-    (e) =>
-      e?.attributes?.webComponent == "Teams" && e?.attributes?.sequence == 5
-  );
-  const ourPartners = data.find(
-    (e) => e?.attributes?.webComponent == "OurPartners"
-  );
-  const whyRL = data.find((e) => e?.attributes?.webComponent == "WhyRootLogic");
+  const pageBanner =
+    data.find((e) => e?.attributes?.webComponent == "PageBanner") || {};
+  const contactText =
+    data.find((e) => e?.attributes?.webComponent == "Contacttext") || {};
+  const gridSection =
+    data.find((e) => e?.attributes?.webComponent == "GridSection") || {};
+  const ourSquad =
+    data.find(
+      (e) =>
+        e?.attributes?.webComponent == "Teams" && e?.attributes?.sequence == 4
+    ) || {};
+  const ourMentors =
+    data.find(
+      (e) =>
+        e?.attributes?.webComponent == "Teams" && e?.attributes?.sequence == 5
+    ) || {};
+  const ourPartners =
+    data.find((e) => e?.attributes?.webComponent == "OurPartners") || {};
+  const whyRL =
+    data.find((e) => e?.attributes?.webComponent == "WhyRootLogic") || {};
 
-  const caseStudies = data.find(
-    (e) => e?.attributes?.webComponent == "CaseStudies"
-  );
+  const caseStudies =
+    data.find((e) => e?.attributes?.webComponent == "CaseStudies") || {};
 
-  const cta = data.find((e) => e?.attributes?.webComponent == "ContactUsCTA");
+  const cta =
+    data.find((e) => e?.attributes?.webComponent == "ContactUsCTA") || {};
 
   return {
     props: {

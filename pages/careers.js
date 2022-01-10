@@ -40,11 +40,9 @@ export default function Careers({
           "At Rootlogic, we are on a constant lookout for great minds brimming with fresh ideas and are willing to take the path less taken, determined to scale greater heights and bring creativity to life with technology."
         }
       />
-      {console.log(data)}
       <TwoColumnGrid
         heading={team?.attributes?.heroHeading}
         data={team?.attributes}
-        list={teamDrives}
       />
 
       <RootsterDNA
@@ -65,7 +63,8 @@ export default function Careers({
 }
 
 export async function getServerSideProps() {
-  const res = await getSectionData("Careers");
+  let queries = ["teamElements"];
+  const res = await getSectionData("Careers", queries);
   const { data } = res.data;
 
   if (!data) {
@@ -75,17 +74,16 @@ export async function getServerSideProps() {
   }
 
   console.log(data);
-  const pageBanner = data.find(
-    (e) => e?.attributes?.webComponent == "PageBanner"
-  );
-  const contact = data.find((e) => e?.attributes?.webComponent == "ContactUs");
-  const rootster = data.find(
-    (e) => e?.attributes?.webComponent == "RootsterDNA"
-  );
-  const team = data.find((e) => e?.attributes?.webComponent == "TwoColumnGrid");
-  const hiringProcess = data.find(
-    (e) => e?.attributes?.webComponent == "HiringProcess"
-  );
+  const pageBanner =
+    data.find((e) => e?.attributes?.webComponent == "PageBanner") || {};
+  const contact =
+    data.find((e) => e?.attributes?.webComponent == "ContactUs") || {};
+  const rootster =
+    data.find((e) => e?.attributes?.webComponent == "RootsterDNA") || {};
+  const team =
+    data.find((e) => e?.attributes?.webComponent == "TwoColumnGrid") || {};
+  const hiringProcess =
+    data.find((e) => e?.attributes?.webComponent == "HiringProcess") || {};
 
   return {
     props: { pageBanner, contact, rootster, team, hiringProcess, data },
