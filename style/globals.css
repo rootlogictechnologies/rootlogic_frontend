@@ -243,3 +243,15 @@ input:focus {
 #uploadResumeMUI {
   opacity: 0 !important;
 }
+
+@media only screen and (max-width: 1150px) {
+  .case-studies-slide .slick-slider .slick-list {
+    overflow: visible;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  .case-studies-slide .slick-slider .slick-list {
+    overflow: hidden;
+  }
+}

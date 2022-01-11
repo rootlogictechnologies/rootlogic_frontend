@@ -1,6 +1,6 @@
 import { Fragment, useState, useEffect } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { UploadIcon, XIcon } from "@heroicons/react/outline";
+import { TrashIcon, UploadIcon, XIcon } from "@heroicons/react/outline";
 import Image from "next/image";
 import TextField from "@mui/material/TextField";
 import InputLabel from "@mui/material/InputLabel";
@@ -8,7 +8,6 @@ import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 import IconButton from "@mui/material/IconButton";
 import Input from "@mui/material/Input";
-// import { FilePicker } from "react-file-picker";
 
 // Assets
 import ModalGraphic from "assets/Career/ModalGraphic.svg";
@@ -17,9 +16,9 @@ import ModalGraphic from "assets/Career/ModalGraphic.svg";
 import { inputHandler } from "helpers/inputHandler";
 
 // APIs
-import { apply, upload } from "apis";
+import { apply, upload, deleteUpload } from "apis";
 
-function HiringModal({ open, setOpen }) {
+function HiringModal({ open, setOpen, job }) {
   const [details, setDetails] = useState({
     name: "",
     email: "",
@@ -31,9 +30,11 @@ function HiringModal({ open, setOpen }) {
     resume: "",
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [uploading, setUploading] = useState(false);
+  const [deleting, setDeleting] = useState(false);
 
   const handleFilePicker = async (pickedFile) => {
-    console.log(pickedFile);
+    setUploading(true);
     const formData = new FormData();
     formData.append("files", pickedFile);
     try {
@@ -46,8 +47,27 @@ function HiringModal({ open, setOpen }) {
           resume: res.data[0],
         });
       }
+      setUploading(false);
     } catch (e) {
       console.error("Error in Application Form", e);
+    }
+  };
+
+  const deleteResume = async () => {
+    setDeleting(true);
+    try {
+      const res = await deleteUpload(details?.resume?.id);
+      console.log(res);
+      if (res.data) {
+        setDetails({
+          ...details,
+          uploadResume: "",
+          resume: {},
+        });
+      }
+      setDeleting(false);
+    } catch (e) {
+      console.error("Error in Delete Upload", e);
     }
   };
 
@@ -56,10 +76,11 @@ function HiringModal({ open, setOpen }) {
       name: details?.name,
       email: details?.email,
       phoneNo: details?.phoneNumber,
-      linkedinProfile: details?.linkedinProfile,
-      portfolioLink: details?.portfolioLink,
-      githubProfile: details?.githubProfile,
+      linkedInURL: details?.linkedinProfile,
+      portfolioURL: details?.portfolioLink,
+      gitHubURL: details?.githubProfile,
       resume: details?.resume || {},
+      jobOpenings: job,
     };
     try {
       const res = await apply({ data: body });
@@ -215,7 +236,8 @@ function HiringModal({ open, setOpen }) {
                         }}
                         className="w-full focus:border-0 focus:border-transparent focus:ring-0 focus:ring-transparent"
                       />
-                      {details?.resume ? (
+                      {details?.resume &&
+                      Object.keys(details?.resume).length > 0 ? (
                         <FormControl
                           className="w-full focus:border-0 focus:border-transparent focus:ring-0 focus:ring-transparent"
                           variant="standard"
@@ -230,16 +252,20 @@ function HiringModal({ open, setOpen }) {
                             variant="standard"
                             value={details?.uploadResume}
                             className="w-full focus:border-0 focus:border-transparent focus:ring-0 focus:ring-transparent"
-                            // endAdornment={
-                            //   <InputAdornment position="end">
-                            //     <IconButton
-                            //     // onClick={handleClickShowPassword}
-                            //     // onMouseDown={handleMouseDownPassword}
-                            //     >
-                            //       <UploadIcon className="h-5 w-5" />
-                            //     </IconButton>
-                            //   </InputAdornment>
-                            // }
+                            endAdornment={
+                              <InputAdornment position="end">
+                                <IconButton
+                                  onClick={() => deleteResume()}
+                                  // onMouseDown={handleMouseDownPassword}
+                                >
+                                  {deleting ? (
+                                    <div className="h-6 w-6 rounded-full bg-transparent border-2 border-red-600 animate-pulse border-t-0" />
+                                  ) : (
+                                    <TrashIcon className="h-5 w-5" />
+                                  )}
+                                </IconButton>
+                              </InputAdornment>
+                            }
                           />
                         </FormControl>
                       ) : (
@@ -272,7 +298,11 @@ function HiringModal({ open, setOpen }) {
                                 // onClick={handleClickShowPassword}
                                 // onMouseDown={handleMouseDownPassword}
                                 >
-                                  <UploadIcon className="h-5 w-5" />
+                                  {uploading ? (
+                                    <div className="h-6 w-6 rounded-full bg-transparent border-2 border-red-600 animate-pulse border-t-0" />
+                                  ) : (
+                                    <UploadIcon className="h-5 w-5" />
+                                  )}
                                 </IconButton>
                               </InputAdornment>
                             }

@@ -32,6 +32,10 @@ export const upload = (body) => {
   return instance.post(`/upload`, body);
 };
 
+export const deleteUpload = (id) => {
+  return instance.delete(`/upload/files/${id}`);
+};
+
 export const apply = (body) => {
   return instance.post(`/applicants`, body);
 };

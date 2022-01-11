@@ -24,7 +24,7 @@ function CurrentOpenings({ heading, data }) {
           {list &&
             list.length > 0 &&
             list.map((item) => {
-              return <Openings {...item} />;
+              return <Openings item={item} />;
             })}
         </div>
       </div>

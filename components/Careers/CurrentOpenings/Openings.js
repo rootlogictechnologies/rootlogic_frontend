@@ -5,7 +5,8 @@ import { MinusIcon, PlusIcon } from "@heroicons/react/solid";
 // Component
 import HiringModal from "components/Common/Modals/HiringModal";
 
-function Openings({ position, description, minYearGap, type, location, link }) {
+function Openings({ item }) {
+  const { position, description, minYearGap, type, location } = item;
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
@@ -83,6 +84,7 @@ function Openings({ position, description, minYearGap, type, location, link }) {
         setOpen={() => {
           setModalOpen(false);
         }}
+        job={item}
       />
     </>
   );
