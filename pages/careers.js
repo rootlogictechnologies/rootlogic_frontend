@@ -6,13 +6,6 @@ import RootsterDNA from "components/Careers/RootsterDNA";
 import HiringProcess from "components/Careers/HiringProcess";
 import CurrentOpenings from "components/Careers/CurrentOpenings";
 
-// Assets
-import Banner from "assets/Banner/careers.png";
-
-// Utils
-import { teamDrives } from "helpers/Data";
-import { currentOpenings } from "helpers/Data";
-
 // APIs
 import { getSectionData } from "apis";
 
@@ -28,10 +21,10 @@ export default function Careers({
   return (
     <div>
       <PageBanner
-        // image={
-        //   pageBanner?.attributes?.media?.data &&
-        //   pageBanner?.attributes?.media?.data[0]?.attributes
-        // }
+        image={
+          pageBanner?.attributes?.media?.data &&
+          pageBanner?.attributes?.media?.data[0]?.attributes
+        }
         heading={
           pageBanner?.attributes?.heroHeading ||
           "Let’s do great things, together."
@@ -41,6 +34,7 @@ export default function Careers({
           "At Rootlogic, we are on a constant lookout for great minds brimming with fresh ideas and are willing to take the path less taken, determined to scale greater heights and bring creativity to life with technology."
         }
       />
+
       <TwoColumnGrid
         heading={team?.attributes?.heroHeading}
         data={team?.attributes}

@@ -10,13 +10,6 @@ import ServicesPoints from "components/OurServices/ServicesPoints";
 import TechUsed from "components/OurServices/TechUsed";
 import TwoColumnGrid from "components/Common/TwoColumnGrid";
 
-// Assets
-import Banner from "assets/Banner/services.png";
-
-//Utils
-import { executionProcess } from "helpers/Data";
-import { serviceDetails } from "helpers/Data";
-
 // APIs
 import { getSectionData, getServices } from "apis";
 
@@ -42,10 +35,10 @@ export default function Services({
   return (
     <div>
       <PageBanner
-        // image={
-        //   pageBanner?.attributes?.media?.data &&
-        //   pageBanner?.attributes?.media?.data[0]?.attributes
-        // }
+        image={
+          pageBanner?.attributes?.media?.data &&
+          pageBanner?.attributes?.media?.data[0]?.attributes
+        }
         heading={pageBanner?.attributes?.heroHeading || "Our Services"}
         description={
           pageBanner?.attributes?.description ||

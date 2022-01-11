@@ -8,7 +8,10 @@ import Select from "@mui/material/Select";
 // Utils
 import { inputHandler } from "helpers/inputHandler";
 
-function ContactForm({ onSubmit, formSubmitted, setFormSubmitted }) {
+// APIs
+import { contactForm } from "apis";
+
+function ContactForm() {
   const [details, setDetails] = useState({
     name: "",
     email: "",
@@ -18,6 +21,19 @@ function ContactForm({ onSubmit, formSubmitted, setFormSubmitted }) {
     heardFrom: "",
     projectDescription: "",
   });
+
+  const [formSubmitted, setFormSubmitted] = useState(false);
+
+  const submitContact = async () => {
+    try {
+      const res = await contactForm({ data: details });
+      if (res.data?.data) {
+        setFormSubmitted(true);
+      }
+    } catch (e) {
+      console.error("Error in Contact Form", e);
+    }
+  };
 
   useEffect(() => {
     if (formSubmitted) {
@@ -168,7 +184,7 @@ function ContactForm({ onSubmit, formSubmitted, setFormSubmitted }) {
           type="submit"
           onClick={() => {
             if (details.name !== "") {
-              onSubmit(details);
+              submitContact(details);
             }
           }}
           className="max-w-max bg-rl-red text-white font-semibold text-md text-center px-14 py-3 rounded-full cursor-pointer transform transition hover:scale-105 duration-300 ease-in-out"

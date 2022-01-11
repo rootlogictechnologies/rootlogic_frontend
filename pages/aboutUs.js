@@ -10,12 +10,7 @@ import OurPartners from "components/AboutUs/OurPartners";
 import CaseStudies from "components/AboutUs/CaseStudies";
 
 // Assets
-// import Banner from "assets/Banner/about.png";
 import img from "assets/AboutUs.png";
-
-// Data
-// import { aboutUsList, mentors, ourSquad } from "helpers/Data";
-// import { CaseStudiesData } from "helpers/Data";
 
 // APIs
 import { getSectionData } from "apis";
@@ -34,10 +29,10 @@ export default function AboutUs({
   return (
     <div>
       <PageBanner
-        // image={
-        //   pageBanner?.attributes?.media?.data &&
-        //   pageBanner?.attributes?.media?.data[0]?.attributes
-        // }
+        image={
+          pageBanner?.attributes?.media?.data &&
+          pageBanner?.attributes?.media?.data[0]?.attributes
+        }
         heading={pageBanner?.attributes?.heroHeading || "Who are we?"}
         description={
           pageBanner?.attributes?.description ||

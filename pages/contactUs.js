@@ -1,54 +1,30 @@
-import { useState } from "react";
-
 // Components
 import PageBanner from "components/Common/PageBanner";
 import ContactInfo from "components/Contact/ContactInfo";
 import ContactForm from "components/Contact/ContactForm";
 
 // Assets
-import Banner from "assets/Banner/contact.png";
 import WorldMap from "components/Contact/Map";
 
 // APIs
-import { getSectionData, contactForm } from "apis";
+import { getSectionData } from "apis";
 import LocationsCards from "components/Contact/Map/LocationsCards";
 
 export default function ContactUs({ pageBanner, contact, locations, data }) {
-  const [formSubmitted, setFormSubmitted] = useState(false);
-
-  const submitContact = async (val) => {
-    try {
-      const res = await contactForm({ data: val });
-      if (res.data?.data) {
-        setFormSubmitted(true);
-      }
-    } catch (e) {
-      console.error("Error in Contact Form", e);
-    }
-  };
-
   return (
     <div>
       <PageBanner
-        // image={
-        //   pageBanner?.attributes?.media?.data &&
-        //   pageBanner?.attributes?.media?.data[0]?.attributes
-        // }
+        image={
+          pageBanner?.attributes?.media?.data &&
+          pageBanner?.attributes?.media?.data[0]?.attributes
+        }
         heading={pageBanner?.attributes?.heroHeading || "Contact Us"}
         description={
           pageBanner?.attributes?.description ||
           "Questions? Comments? We’d love to hear from you. Please don’t hesitate to get in touch. Complete the form below so we can direct your inquiry to the right team."
         }
       />
-      <ContactForm
-        formSubmitted={formSubmitted}
-        setFormSubmitted={(val) => {
-          setFormSubmitted(val);
-        }}
-        onSubmit={(val) => {
-          submitContact(val);
-        }}
-      />
+      <ContactForm />
 
       <WorldMap />
 

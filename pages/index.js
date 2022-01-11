@@ -29,6 +29,7 @@ export default function Home({
         heading={customers?.attributes?.heroHeading}
         data={customers?.attributes}
       />
+      {console.log(data)}
       <GridSection
         heading={services?.attributes?.heroHeading}
         bgColor="bg-rl-dark-grey"

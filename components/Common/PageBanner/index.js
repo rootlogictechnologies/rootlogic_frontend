@@ -8,11 +8,11 @@ import img from "assets/Banner/about.png";
 export default function PageBanner({ image, heading = "", description = "" }) {
   return (
     <div>
-      <div className="w-full">
+      <div className="block w-screen h-32 md:h-80 relative">
         <Image
           className="h-32 md:h-80 w-full object-cover"
           src={image?.url || img}
-          layout="responsive"
+          layout="fill"
           alt="Page Banner"
         />
       </div>

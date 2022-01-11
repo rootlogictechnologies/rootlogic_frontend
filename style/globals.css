@@ -239,3 +239,7 @@ input:focus {
   -webkit-transform: translate(0, 0);
   -webkit-transition: -webkit-transform 0.2s, background 0.3s, color 0.3s;
 }
+
+#uploadResumeMUI {
+  opacity: 0 !important;
+}

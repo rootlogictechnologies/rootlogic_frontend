@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { UploadIcon, XIcon } from "@heroicons/react/outline";
 import Image from "next/image";
@@ -8,6 +8,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 import IconButton from "@mui/material/IconButton";
 import Input from "@mui/material/Input";
+// import { FilePicker } from "react-file-picker";
 
 // Assets
 import ModalGraphic from "assets/Career/ModalGraphic.svg";
@@ -15,7 +16,9 @@ import ModalGraphic from "assets/Career/ModalGraphic.svg";
 // Utils
 import { inputHandler } from "helpers/inputHandler";
 
-// TODO: Add upload feature
+// APIs
+import { apply, upload } from "apis";
+
 function HiringModal({ open, setOpen }) {
   const [details, setDetails] = useState({
     name: "",
@@ -25,12 +28,48 @@ function HiringModal({ open, setOpen }) {
     portfolioLink: "",
     githubProfile: "",
     uploadResume: "",
+    resume: "",
   });
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
-  const onSubmit = async () => {
-    if (details.name !== "") {
-      console.log(details);
-      setOpen(false);
+  const handleFilePicker = async (pickedFile) => {
+    console.log(pickedFile);
+    const formData = new FormData();
+    formData.append("files", pickedFile);
+    try {
+      const res = await upload(formData);
+      console.log(res);
+      if (res.data) {
+        setDetails({
+          ...details,
+          uploadResume: res.data[0]?.name,
+          resume: res.data[0],
+        });
+      }
+    } catch (e) {
+      console.error("Error in Application Form", e);
+    }
+  };
+
+  const submitApplication = async () => {
+    let body = {
+      name: details?.name,
+      email: details?.email,
+      phoneNo: details?.phoneNumber,
+      linkedinProfile: details?.linkedinProfile,
+      portfolioLink: details?.portfolioLink,
+      githubProfile: details?.githubProfile,
+      resume: details?.resume || {},
+    };
+    try {
+      const res = await apply({ data: body });
+      console.log(res);
+      if (res.data?.data) {
+        setFormSubmitted(true);
+        setOpen(false);
+      }
+    } catch (e) {
+      console.error("Error in Application Form", e);
     }
   };
 
@@ -105,6 +144,7 @@ function HiringModal({ open, setOpen }) {
                         }}
                         className="w-full focus:border-0 focus:border-transparent focus:ring-0 focus:ring-transparent"
                       />
+                      {console.log("resume", details)}
                       <TextField
                         id="email"
                         label="Email"
@@ -175,42 +215,77 @@ function HiringModal({ open, setOpen }) {
                         }}
                         className="w-full focus:border-0 focus:border-transparent focus:ring-0 focus:ring-transparent"
                       />
-                      <FormControl
-                        className="w-full focus:border-0 focus:border-transparent focus:ring-0 focus:ring-transparent"
-                        variant="standard"
-                      >
-                        <InputLabel htmlFor="uploadResume">
-                          Upload resume
-                        </InputLabel>
-                        <Input
-                          id="uploadResume"
-                          label="Upload Resume"
-                          type="text"
-                          variant="standard"
-                          value={details?.uploadResume}
-                          onChange={(e) => {
-                            setDetails({
-                              ...details,
-                              uploadResume: inputHandler(e, "uploadResume"),
-                            });
-                          }}
+                      {details?.resume ? (
+                        <FormControl
                           className="w-full focus:border-0 focus:border-transparent focus:ring-0 focus:ring-transparent"
-                          endAdornment={
-                            <InputAdornment position="end">
-                              <IconButton
-                              // onClick={handleClickShowPassword}
-                              // onMouseDown={handleMouseDownPassword}
-                              >
-                                <UploadIcon className="h-5 w-5" />
-                              </IconButton>
-                            </InputAdornment>
-                          }
-                        />
-                      </FormControl>
+                          variant="standard"
+                        >
+                          <InputLabel htmlFor="uploadResume">
+                            Upload resume
+                          </InputLabel>
+                          <Input
+                            id="uploadResume"
+                            label="Upload Resume"
+                            type="text"
+                            variant="standard"
+                            value={details?.uploadResume}
+                            className="w-full focus:border-0 focus:border-transparent focus:ring-0 focus:ring-transparent"
+                            // endAdornment={
+                            //   <InputAdornment position="end">
+                            //     <IconButton
+                            //     // onClick={handleClickShowPassword}
+                            //     // onMouseDown={handleMouseDownPassword}
+                            //     >
+                            //       <UploadIcon className="h-5 w-5" />
+                            //     </IconButton>
+                            //   </InputAdornment>
+                            // }
+                          />
+                        </FormControl>
+                      ) : (
+                        // <FilePicker
+                        //   extensions={["png", "jpeg", "jpg", "svg"]}
+                        //   onChange={handleFilePicker}
+                        //   onError={handleFilePickerError}
+                        //   maxSize={6000}
+                        // >
+                        <FormControl
+                          className="w-full focus:border-0 focus:border-transparent focus:ring-0 focus:ring-transparent"
+                          variant="standard"
+                        >
+                          <InputLabel htmlFor="uploadResume">
+                            Upload resume
+                          </InputLabel>
+                          <Input
+                            id="uploadResumeMUI"
+                            label="Upload Resume"
+                            type="file"
+                            onChange={(e) => {
+                              handleFilePicker(e.target.files[0]);
+                            }}
+                            variant="standard"
+                            value={details?.uploadResume}
+                            className="w-full focus:border-0 focus:border-transparent focus:ring-0 focus:ring-transparent"
+                            endAdornment={
+                              <InputAdornment position="end">
+                                <IconButton
+                                // onClick={handleClickShowPassword}
+                                // onMouseDown={handleMouseDownPassword}
+                                >
+                                  <UploadIcon className="h-5 w-5" />
+                                </IconButton>
+                              </InputAdornment>
+                            }
+                          />
+                        </FormControl>
+                        // </FilePicker>
+                      )}
                       <button
                         type="button"
                         onClick={() => {
-                          onSubmit();
+                          if (details.name !== "") {
+                            submitApplication();
+                          }
                         }}
                         className="bg-rl-red text-white font-semibold text-md text-center px-9 py-2.5 rounded-full cursor-pointer transform transition hover:scale-105 duration-300 ease-in-out"
                       >

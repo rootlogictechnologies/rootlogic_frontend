@@ -12,11 +12,27 @@ import { navigation } from "helpers/FooterNavigations";
 // Component
 import NavList from "./NavList";
 
+// Utils
+import { inputHandler } from "helpers/inputHandler";
+
+// APIs
+import { contactForm } from "apis";
+
 export default function Footer() {
   const [email, setEmail] = useState("");
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
-  const onSubmitEmail = () => {
-    console.log(email);
+  const onSubmitEmail = async () => {
+    try {
+      const res = await contactForm({ data: { email: email } });
+      console.log(res);
+      if (res.data?.data) {
+        setFormSubmitted(true);
+        setEmail("");
+      }
+    } catch (e) {
+      console.error("Error in Contact Form", e);
+    }
   };
 
   return (
@@ -71,10 +87,7 @@ export default function Footer() {
                     placeholder="Your email address"
                     value={email}
                     onChange={(e) => {
-                      e.target.value = e.target.value
-                        .trimStart()
-                        .replace(/[^a-zA-Z\s]/gi, "");
-                      setEmail(e.target.value);
+                      setEmail(inputHandler(e, "email"));
                     }}
                     className="appearance-none p-0 bg-transparent text-sm font-normal block w-full border-transparent placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-transparent focus:border-transparent"
                   />
