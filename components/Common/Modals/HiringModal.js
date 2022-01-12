@@ -1,4 +1,4 @@
-import { Fragment, useState, useEffect } from "react";
+import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { TrashIcon, UploadIcon, XIcon } from "@heroicons/react/outline";
 import Image from "next/image";
@@ -8,6 +8,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 import IconButton from "@mui/material/IconButton";
 import Input from "@mui/material/Input";
+import FormHelperText from "@mui/material/FormHelperText";
 
 // Assets
 import ModalGraphic from "assets/Career/ModalGraphic.svg";
@@ -29,6 +30,13 @@ function HiringModal({ open, setOpen, job }) {
     uploadResume: "",
     resume: "",
   });
+  const [error, setError] = useState({
+    name: "",
+    email: "",
+    phoneNumber: "",
+    uploadResume: "",
+    resume: "",
+  });
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [deleting, setDeleting] = useState(false);
@@ -45,6 +53,10 @@ function HiringModal({ open, setOpen, job }) {
           ...details,
           uploadResume: res.data[0]?.name,
           resume: res.data[0],
+        });
+        setError({
+          ...error,
+          uploadResume: "",
         });
       }
       setUploading(false);
@@ -72,6 +84,34 @@ function HiringModal({ open, setOpen, job }) {
   };
 
   const submitApplication = async () => {
+    if (
+      details?.name == "" ||
+      details?.email == "" ||
+      details?.phoneNumber == "" ||
+      !details?.uploadResume ||
+      details?.uploadResume == ""
+    ) {
+      let errorObj = {
+        name: "",
+        email: "",
+        phoneNumber: "",
+        uploadResume: "",
+        resume: "",
+      };
+      if (details?.name == "") errorObj.name = "Please enter a Name!";
+
+      if (details?.email == "") errorObj.email = "Please enter an Email!";
+
+      if (details?.phoneNumber == "")
+        errorObj.phoneNumber = "Please enter a Phone Number!";
+
+      if (!details?.uploadResume || details?.uploadResume == "")
+        errorObj.uploadResume = "Please upload a resume!";
+      setError(errorObj);
+
+      return;
+    }
+
     let body = {
       name: details?.name,
       email: details?.email,
@@ -80,13 +120,32 @@ function HiringModal({ open, setOpen, job }) {
       portfolioURL: details?.portfolioLink,
       gitHubURL: details?.githubProfile,
       resume: details?.resume || {},
-      jobOpenings: job,
+      jobOpenings: {
+        id: job?.id,
+      },
     };
     try {
       const res = await apply({ data: body });
       console.log(res);
       if (res.data?.data) {
         setFormSubmitted(true);
+        setDetails({
+          name: "",
+          email: "",
+          phoneNumber: "",
+          linkedinProfile: "",
+          portfolioLink: "",
+          githubProfile: "",
+          uploadResume: "",
+          resume: "",
+        });
+        setError({
+          name: "",
+          email: "",
+          phoneNumber: "",
+          uploadResume: "",
+          resume: "",
+        });
         setOpen(false);
       }
     } catch (e) {
@@ -157,25 +216,37 @@ function HiringModal({ open, setOpen, job }) {
                         type="text"
                         variant="standard"
                         value={details?.name}
+                        error={error?.name}
+                        helperText={error?.name}
                         onChange={(e) => {
                           setDetails({
                             ...details,
                             name: inputHandler(e, "name"),
                           });
+                          setError({
+                            ...error,
+                            name: "",
+                          });
                         }}
                         className="w-full focus:border-0 focus:border-transparent focus:ring-0 focus:ring-transparent"
                       />
-                      {console.log("resume", details)}
+
                       <TextField
                         id="email"
                         label="Email"
                         type="email"
                         variant="standard"
                         value={details?.email}
+                        error={error?.email}
+                        helperText={error?.email}
                         onChange={(e) => {
                           setDetails({
                             ...details,
                             email: inputHandler(e, "email"),
+                          });
+                          setError({
+                            ...error,
+                            email: "",
                           });
                         }}
                         className="w-full focus:border-0 focus:border-transparent focus:ring-0 focus:ring-transparent"
@@ -186,10 +257,16 @@ function HiringModal({ open, setOpen, job }) {
                         type="number"
                         variant="standard"
                         value={details?.phoneNumber}
+                        error={error?.phoneNumber}
+                        helperText={error?.phoneNumber}
                         onChange={(e) => {
                           setDetails({
                             ...details,
                             phoneNumber: inputHandler(e, "phoneNumber"),
+                          });
+                          setError({
+                            ...error,
+                            phoneNumber: "",
                           });
                         }}
                         className="w-full focus:border-0 focus:border-transparent focus:ring-0 focus:ring-transparent"
@@ -276,15 +353,16 @@ function HiringModal({ open, setOpen, job }) {
                         //   maxSize={6000}
                         // >
                         <FormControl
+                          error={error?.uploadResume}
                           className="w-full focus:border-0 focus:border-transparent focus:ring-0 focus:ring-transparent"
                           variant="standard"
                         >
                           <InputLabel htmlFor="uploadResume">
-                            Upload resume
+                            Upload resume (PDF or Docs only)
                           </InputLabel>
                           <Input
                             id="uploadResumeMUI"
-                            label="Upload Resume"
+                            label="Upload Resume (PDF or Docs only)"
                             type="file"
                             onChange={(e) => {
                               handleFilePicker(e.target.files[0]);
@@ -307,15 +385,17 @@ function HiringModal({ open, setOpen, job }) {
                               </InputAdornment>
                             }
                           />
+                          <FormHelperText id="upload-error-text">
+                            {error?.uploadResume}
+                          </FormHelperText>
                         </FormControl>
                         // </FilePicker>
                       )}
+
                       <button
                         type="button"
                         onClick={() => {
-                          if (details.name !== "") {
-                            submitApplication();
-                          }
+                          submitApplication();
                         }}
                         className="bg-rl-red text-white font-semibold text-md text-center px-9 py-2.5 rounded-full cursor-pointer transform transition hover:scale-105 duration-300 ease-in-out"
                       >

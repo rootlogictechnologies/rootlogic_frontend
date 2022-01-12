@@ -16,7 +16,6 @@ export default function Careers({
   team,
   hiringProcess,
   currentOpenings,
-  data,
 }) {
   return (
     <div>
@@ -70,14 +69,19 @@ export async function getServerSideProps() {
 
   const pageBanner =
     data.find((e) => e?.attributes?.webComponent == "PageBanner") || {};
+
   const contact =
     data.find((e) => e?.attributes?.webComponent == "ContactUs") || {};
+
   const rootster =
     data.find((e) => e?.attributes?.webComponent == "RootsterDNA") || {};
+
   const team =
     data.find((e) => e?.attributes?.webComponent == "TwoColumnGrid") || {};
+
   const hiringProcess =
     data.find((e) => e?.attributes?.webComponent == "HiringProcess") || {};
+
   const currentOpenings =
     data.find((e) => e?.attributes?.webComponent == "CurrentOpenings") || {};
 

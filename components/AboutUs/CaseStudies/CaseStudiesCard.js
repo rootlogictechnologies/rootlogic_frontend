@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 // Case Studies Demo Image
 import DemoCase from "assets/DemoCases.png";
 

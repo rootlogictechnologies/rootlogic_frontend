@@ -18,7 +18,6 @@ export const getSectionData = (page, queries) => {
       query = query + `&populate[${item}][populate]=%2A`;
     });
   }
-  console.log(`/section-datas?filters[pages][title][$eq]=${page}${query}`);
   return instance.get(
     `/section-datas?filters[pages][title][$eq]=${page}${query}&populate[media]populate=%2A`
   );

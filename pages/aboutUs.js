@@ -123,22 +123,28 @@ export async function getServerSideProps() {
   }
   const pageBanner =
     data.find((e) => e?.attributes?.webComponent == "PageBanner") || {};
+
   const contactText =
     data.find((e) => e?.attributes?.webComponent == "Contacttext") || {};
+
   const gridSection =
     data.find((e) => e?.attributes?.webComponent == "GridSection") || {};
+
   const ourSquad =
     data.find(
       (e) =>
         e?.attributes?.webComponent == "Teams" && e?.attributes?.sequence == 4
     ) || {};
+
   const ourMentors =
     data.find(
       (e) =>
         e?.attributes?.webComponent == "Teams" && e?.attributes?.sequence == 5
     ) || {};
+
   const ourPartners =
     data.find((e) => e?.attributes?.webComponent == "OurPartners") || {};
+
   const whyRL =
     data.find((e) => e?.attributes?.webComponent == "WhyRootLogic") || {};
 

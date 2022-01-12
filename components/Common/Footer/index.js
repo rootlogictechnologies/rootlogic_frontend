@@ -29,6 +29,9 @@ export default function Footer() {
       if (res.data?.data) {
         setFormSubmitted(true);
         setEmail("");
+        setTimeout(function () {
+          setFormSubmitted(false);
+        }, 2000);
       }
     } catch (e) {
       console.error("Error in Contact Form", e);
@@ -79,27 +82,35 @@ export default function Footer() {
                 <label htmlFor="email" className="sr-only">
                   Email
                 </label>
-                <div className="mt-1 flex items-center py-2 px-3 border-0 bg-white bg-opacity-20 rounded-lg w-full">
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder="Your email address"
-                    value={email}
-                    onChange={(e) => {
-                      setEmail(inputHandler(e, "email"));
-                    }}
-                    className="appearance-none p-0 bg-transparent text-sm font-normal block w-full border-transparent placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-transparent focus:border-transparent"
-                  />
-                  <Image
-                    src={SendIcon}
-                    className="cursor-pointer transform transition hover:scale-125 duration-300 ease-in-out"
-                    alt="Send"
-                    onClick={() => {
-                      onSubmitEmail();
-                    }}
-                  />
-                </div>
+                {!formSubmitted ? (
+                  <div className="mt-1 flex items-center py-2 px-3 border-0 bg-white bg-opacity-20 rounded-lg w-full">
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      placeholder="Your email address"
+                      value={email}
+                      onChange={(e) => {
+                        setEmail(inputHandler(e, "email"));
+                      }}
+                      className="appearance-none p-0 bg-transparent text-sm font-normal block w-full border-transparent placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-transparent focus:border-transparent"
+                    />
+                    <Image
+                      src={SendIcon}
+                      className="cursor-pointer transform transition hover:scale-125 duration-300 ease-in-out"
+                      alt="Send"
+                      onClick={() => {
+                        onSubmitEmail();
+                      }}
+                    />
+                  </div>
+                ) : (
+                  <div className="mt-1 flex items-center py-2.5 px-3 border-0 bg-white bg-opacity-20 rounded-lg w-full">
+                    <div className="appearance-none p-0 bg-transparent text-sm font-normal block w-full border-transparent placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-transparent focus:border-transparent">
+                      Thank you!
+                    </div>
+                  </div>
+                )}
               </form>
             </div>
           </div>

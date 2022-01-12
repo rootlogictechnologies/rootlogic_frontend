@@ -10,7 +10,7 @@ import WorldMap from "components/Contact/Map";
 import { getSectionData } from "apis";
 import LocationsCards from "components/Contact/Map/LocationsCards";
 
-export default function ContactUs({ pageBanner, contact, locations, data }) {
+export default function ContactUs({ pageBanner, contact, locations }) {
   return (
     <div>
       <PageBanner
@@ -48,8 +48,10 @@ export async function getServerSideProps() {
 
   const pageBanner =
     data.find((e) => e?.attributes?.webComponent == "PageBanner") || {};
+
   const contact =
     data.find((e) => e?.attributes?.webComponent == "ContactInfo") || {};
+
   const locations =
     data.find((e) => e?.attributes?.webComponent == "Locations") || {};
 

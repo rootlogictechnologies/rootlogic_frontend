@@ -14,9 +14,14 @@ export default function MobileNavigation({ setMobileMenuOpen }) {
     <>
       <div className="py-5 flex items-center justify-between px-7">
         <div className="w-3/4">
-          <a className="flex items-center justify-start h-8">
-            <Image className="h-8 w-auto" src={Logo} alt="RootLogic Logo" />
-          </a>
+          <Link href="/">
+            <a
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center justify-start h-8"
+            >
+              <Image className="h-8 w-auto" src={Logo} alt="RootLogic Logo" />
+            </a>
+          </Link>
         </div>
         <button
           type="button"

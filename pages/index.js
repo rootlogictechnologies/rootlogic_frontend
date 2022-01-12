@@ -6,12 +6,8 @@ import HeroSection from "components/Landing/HeroSection";
 import Solutions from "components/Landing/Solutions";
 import TestimonialsSection from "components/Landing/Testimonials";
 
-// Data
-import { services } from "helpers/Data";
-import { testimonials } from "helpers/Data";
-
 // APIs
-import { getPageData, getSectionData } from "apis";
+import { getSectionData } from "apis";
 
 export default function Home({
   heroSection,
@@ -20,7 +16,6 @@ export default function Home({
   services,
   solutions,
   customers,
-  data,
 }) {
   return (
     <div>
@@ -29,7 +24,6 @@ export default function Home({
         heading={customers?.attributes?.heroHeading}
         data={customers?.attributes}
       />
-      {console.log(data)}
       <GridSection
         heading={services?.attributes?.heroHeading}
         bgColor="bg-rl-dark-grey"
@@ -47,7 +41,6 @@ export default function Home({
       <TestimonialsSection
         heading={testimonialsSection?.attributes?.heroHeading}
         data={testimonialsSection?.attributes}
-        testimonials={testimonials}
       />
       <ContactUsCTA data={cta?.attributes} />
     </div>
@@ -67,16 +60,20 @@ export async function getServerSideProps() {
 
   const heroSection =
     data.find((e) => e?.attributes?.webComponent == "HeroSection") || {};
+
   const testimonialsSection =
     data.find((e) => e?.attributes?.webComponent == "TestimonialsSection") ||
     {};
+
   const cta =
     data.find((e) => e?.attributes?.webComponent == "ContactUsCTA") || {};
+
   const services =
     data.find((e) => e?.attributes?.webComponent == "PageBanner") || {};
 
   const solutions =
     data.find((e) => e?.attributes?.webComponent == "Solutions") || {};
+
   const customers =
     data.find((e) => e?.attributes?.webComponent == "CustomerList") || {};
 

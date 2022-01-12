@@ -3,7 +3,7 @@ import Image from "next/image";
 // Assets
 import Check from "assets/Services/Check.svg";
 
-function HiringTimeline({ list }) {
+function HiringTimeline({ list, description }) {
   return (
     <div>
       {list &&
@@ -38,7 +38,7 @@ function HiringTimeline({ list }) {
           </div>
         ))}
       <p className="mt-1.5 font-normal text-sm leading-5 text-rl-dark-grey">
-        The entire process typically takes a week to 10 days***
+        {description}
       </p>
     </div>
   );

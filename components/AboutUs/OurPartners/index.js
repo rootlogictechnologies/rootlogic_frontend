@@ -10,8 +10,6 @@ import Heading from "components/Common/Heading";
 
 // Partners' Logos
 import CaaryaLogo from "assets/Logo/CaaryaLogo.svg";
-import Synctatic from "assets/Logo/Synctatic.svg";
-import DigitalPi from "assets/Logo/DigitalPi.svg";
 
 // Icons
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/outline";

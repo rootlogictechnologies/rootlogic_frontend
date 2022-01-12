@@ -2,9 +2,6 @@ import { useEffect, useState } from "react";
 
 import Heading from "components/Common/Heading";
 
-// Data
-import { rootsterdna } from "helpers/Data";
-
 function RootsterDNA({ heading = "", data }) {
   const [list, setList] = useState([]);
 

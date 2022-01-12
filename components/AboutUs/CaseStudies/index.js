@@ -22,6 +22,7 @@ function CaseStudies({ heading, data }) {
       });
     setList(temp);
   }, [data]);
+
   const settings = {
     dots: false,
     infinite: true,

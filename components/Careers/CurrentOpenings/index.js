@@ -11,10 +11,13 @@ function CurrentOpenings({ heading, data }) {
     data?.jobOpenings?.data &&
       data?.jobOpenings?.data.length > 0 &&
       data?.jobOpenings?.data.map((item) => {
-        temp.push(item?.attributes);
+        let temp1 = item?.attributes;
+        temp1["id"] = item?.id;
+        temp.push(temp1);
       });
     setList(temp);
   }, [data]);
+
   return (
     <div className="mx-auto px-7 lg:px-8 py-12 md:py-20 max-w-6xl">
       <div className="w-full flex flex-col items-center space-y-7 md:space-y-10">

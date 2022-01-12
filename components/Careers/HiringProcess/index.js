@@ -31,7 +31,7 @@ function HiringProcess({ heading, data }) {
         <Heading heading={heading} />
         <div className="flex flex-col-reverse items-center justify-between mlg:flex-row w-full">
           <div className="w-full mlg:w-1/2">
-            <HiringTimeline list={list} />
+            <HiringTimeline list={list} description={data?.description} />
           </div>
           <div className="w-full mlg:w-1/2 mb-8 mlg:mb-0">
             <div className="relative mx-auto w-300px h-254px md:w-540px md:h-458px">

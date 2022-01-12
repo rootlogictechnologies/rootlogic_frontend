@@ -11,15 +11,9 @@ import TechUsed from "components/OurServices/TechUsed";
 import TwoColumnGrid from "components/Common/TwoColumnGrid";
 
 // APIs
-import { getSectionData, getServices } from "apis";
+import { getSectionData } from "apis";
 
-export default function Services({
-  pageBanner,
-  process,
-  cta,
-  data,
-  allServices,
-}) {
+export default function Services({ pageBanner, process, cta, allServices }) {
   const [list, setList] = useState([]);
 
   useEffect(() => {
@@ -105,10 +99,13 @@ export async function getServerSideProps() {
   }
   const pageBanner =
     data.find((e) => e?.attributes?.webComponent == "PageBanner") || {};
+
   const process =
     data.find((e) => e?.attributes?.webComponent == "TwoColumnGrid") || {};
+
   const cta =
     data.find((e) => e?.attributes?.webComponent == "ContactUsCTA") || {};
+
   const allServices =
     data.find((e) => e?.attributes?.webComponent == "PageBanner") || {};
 

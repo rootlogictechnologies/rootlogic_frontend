@@ -4,9 +4,6 @@ import Image from "next/image";
 // Component
 import Heading from "components/Common/Heading";
 
-// Utils
-import { whyRootlogic } from "helpers/Data";
-
 function WhyRootLogic({ heading, data }) {
   const [list, setList] = useState([]);
 

@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 // Data
 import Heading from "components/Common/Heading";
-import { solutions } from "helpers/Data";
 
 // Component
 import SolutionsCard from "./SolutionsCard";
