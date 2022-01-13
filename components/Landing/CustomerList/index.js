@@ -18,7 +18,7 @@ function CustomerList({ heading, data }) {
 
   return (
     <div className="py-20 mx-auto px-7 lg:px-8 max-w-6xl">
-      <Heading heading={heading} /> {console.log(list)}
+      <Heading heading={heading} />
       <LogosList list={list} />
     </div>
   );

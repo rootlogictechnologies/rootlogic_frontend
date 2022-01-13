@@ -26,10 +26,9 @@ function HeroSection({ data }) {
               </Link>
             </div>
           </div>
-          <div className="relative mt-10 md:mt-0 sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:flex-row-reverse lg:items-end">
-            <div className="relative w-300px h-300px md:w-445px md:h-600px rounded-xl lg:max-w-md bg-transparent">
+          <div className="relative mt-10 w-full md:w-max md:mt-0 sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:flex-row-reverse lg:items-end">
+            <div className="block relative w-300px h-300px md:w-445px md:h-600px rounded-xl lg:max-w-md bg-transparent mx-auto">
               <Image
-                className="w-300px h-300px md:w-445px md:h-600px"
                 src={
                   (data?.media?.data[0] &&
                     data?.media?.data[0]?.attributes?.url) ||
@@ -37,6 +36,7 @@ function HeroSection({ data }) {
                 }
                 layout="fill"
                 alt=""
+                objectFit="contain"
               />
             </div>
           </div>

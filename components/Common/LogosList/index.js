@@ -22,7 +22,7 @@ function LogosList({ list }) {
           slidesToShow: Math.min(list.length, 4),
           slidesToScroll: 1,
           infinite: true,
-          dots: true,
+          dots: false,
         },
       },
       {
@@ -31,7 +31,7 @@ function LogosList({ list }) {
           slidesToShow: Math.min(list.length, 3),
           slidesToScroll: 1,
           infinite: true,
-          dots: true,
+          dots: false,
         },
       },
       {
@@ -40,7 +40,7 @@ function LogosList({ list }) {
           slidesToShow: Math.min(list.length, 2),
           slidesToScroll: 1,
           infinite: true,
-          dots: true,
+          dots: false,
         },
       },
       {
@@ -49,7 +49,7 @@ function LogosList({ list }) {
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: true,
-          dots: true,
+          dots: false,
         },
       },
     ],

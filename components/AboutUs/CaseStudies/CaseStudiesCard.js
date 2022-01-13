@@ -5,8 +5,8 @@ import DemoCase from "assets/DemoCases.png";
 
 function CaseStudiesCard({ media, title, description }) {
   return (
-    <div className="group relative w-260px md:w-350px mx-auto px-2">
-      <div className="w-260px mlg:w-350px relative h-260px md:h-350px bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:aspect-none">
+    <div className="group relative w-260px md:w-300px mx-auto px-4">
+      <div className="w-260px md:w-300px relative h-260px md:h-300px bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:aspect-none">
         <Image
           src={media?.data[0]?.attributes?.url || DemoCase}
           alt="Case Study"

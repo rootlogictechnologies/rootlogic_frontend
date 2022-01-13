@@ -13,6 +13,7 @@ import CaaryaLogo from "assets/Logo/CaaryaLogo.svg";
 
 // Icons
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/outline";
+import Logos from "components/Common/Logos";
 
 function OurPartners({ heading, list }) {
   const [LogoList, setLogoList] = useState([]);
@@ -29,6 +30,7 @@ function OurPartners({ heading, list }) {
 
   const settings = {
     dots: false,
+    arrows: false,
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -51,6 +53,7 @@ function OurPartners({ heading, list }) {
           slidesToScroll: 1,
           infinite: true,
           dots: true,
+          arrows: false,
         },
       },
       {
@@ -60,6 +63,7 @@ function OurPartners({ heading, list }) {
           slidesToScroll: 1,
           infinite: true,
           dots: true,
+          arrows: false,
         },
       },
     ],
@@ -73,19 +77,10 @@ function OurPartners({ heading, list }) {
           <Slider {...settings}>
             {LogoList &&
               LogoList.length > 0 &&
-              LogoList.map((item) => {
+              LogoList.map((item, index) => {
                 return (
-                  <div className="h-10 w-36">
-                    <div className="h-10 w-36 pt-2 mx-auto">
-                      <Image
-                        src={item?.url || CaaryaLogo}
-                        alt="Caarya Logo"
-                        layout="fixed"
-                        width="144px"
-                        height="40px"
-                        className="mx-auto"
-                      />
-                    </div>
+                  <div className="mb-5">
+                    <Logos image={item?.url} index={index} />
                   </div>
                 );
               })}

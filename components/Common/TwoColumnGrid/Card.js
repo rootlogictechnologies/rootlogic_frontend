@@ -6,17 +6,19 @@ function Card({ title, description, media, index }) {
       <div className="sm:flex-shrink-0">
         <div className="flow-root">
           <div className="w-11 h-11 md:w-16 md:h-16 bg-rl-light flex flex-row items-center justify-center rounded-full text-sm md:text-2xl font-bold leading-7 text-rl-dark-grey">
-            <div className="w-4 h-4 md:w-8 md:h-8 text-center">
+            <div className="w-4 h-4 md:w-8 md:h-8 text-center flex flex-row items-center justify-center">
               {media?.data ? (
-                <Image
-                  src={media?.data?.attributes?.url}
-                  layout="responsive"
-                  width="40px"
-                  height="40px"
-                  alt="Illustration"
-                />
+                <div className="w-4 h-4 md:w-8 md:h-8">
+                  <Image
+                    src={media?.data?.attributes?.url}
+                    layout="responsive"
+                    width="40px"
+                    height="40px"
+                    alt="Illustration"
+                  />
+                </div>
               ) : (
-                index + 1
+                <span className="">{index + 1}</span>
               )}
             </div>
           </div>

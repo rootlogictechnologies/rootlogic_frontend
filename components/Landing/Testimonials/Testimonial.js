@@ -26,7 +26,7 @@ function Testimonial({ data }) {
   }, [data]);
 
   const settings = {
-    dots: false,
+    dots: true,
     infinite: true,
     slidesToShow: list.length > 3 ? 4 : list.length || 1,
     slidesToScroll: 1,
@@ -78,7 +78,7 @@ function Testimonial({ data }) {
             list.map((item, index) => {
               return (
                 <div
-                  className="flex flex-row items-center testimonial max-w-max mx-auto cursor-pointer transform transition ease-in-out"
+                  className="flex flex-row items-center testimonial max-w-max mx-auto cursor-pointer transform transition ease-in-out mb-8"
                   key={index}
                   onClick={() => {
                     setSelectedTestimonial(item);
