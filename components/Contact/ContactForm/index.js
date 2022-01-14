@@ -7,6 +7,7 @@ import Select from "@mui/material/Select";
 
 // Utils
 import { inputHandler } from "helpers/inputHandler";
+import { validateEmail, validatePhone } from "helpers/checkRegex";
 
 // APIs
 import { contactForm } from "apis";
@@ -39,8 +40,6 @@ function ContactForm() {
         name: "",
         email: "",
         phoneNumber: "",
-        uploadResume: "",
-        resume: "",
       };
       if (details?.name == "") errorObj.name = "Please enter a Name!";
 
@@ -53,6 +52,28 @@ function ContactForm() {
 
       return;
     }
+
+    if (details?.email && details?.phoneNumber) {
+      let errorObj = {
+        email: "",
+        phoneNumber: "",
+      };
+
+      let error = false;
+
+      if (!validateEmail(details?.email)) {
+        errorObj.email = "Please enter a valid Email!";
+        error = true;
+      }
+      if (!validatePhone(details?.phoneNumber)) {
+        errorObj.phoneNumber = "Please enter a valid Number!";
+        error = true;
+      }
+      setError(errorObj);
+
+      if (error) return;
+    }
+
     try {
       const res = await contactForm({ data: details });
       if (res.data?.data) {

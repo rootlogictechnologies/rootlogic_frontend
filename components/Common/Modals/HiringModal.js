@@ -15,6 +15,7 @@ import ModalGraphic from "assets/Career/ModalGraphic.svg";
 
 // Utils
 import { inputHandler } from "helpers/inputHandler";
+import { validateEmail, validatePhone } from "helpers/checkRegex";
 
 // APIs
 import { apply, upload, deleteUpload } from "apis";
@@ -110,6 +111,27 @@ function HiringModal({ open, setOpen, job }) {
       setError(errorObj);
 
       return;
+    }
+
+    if (details?.email && details?.phoneNumber) {
+      let errorObj = {
+        email: "",
+        phoneNumber: "",
+      };
+
+      let error = false;
+
+      if (!validateEmail(details?.email)) {
+        errorObj.email = "Please enter a valid Email!";
+        error = true;
+      }
+      if (!validatePhone(details?.phoneNumber)) {
+        errorObj.phoneNumber = "Please enter a valid Number!";
+        error = true;
+      }
+      setError(errorObj);
+
+      if (error) return;
     }
 
     let body = {

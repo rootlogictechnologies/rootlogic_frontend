@@ -38,3 +38,8 @@ export const deleteUpload = (id) => {
 export const apply = (body) => {
   return instance.post(`/applicants`, body);
 };
+
+// Hitting the next server hence directly used axios.post
+export const newsletter = (data) => {
+  return axios.post("/api/newsletter", data);
+};

@@ -14,27 +14,47 @@ import NavList from "./NavList";
 
 // Utils
 import { inputHandler } from "helpers/inputHandler";
+import { validateEmail } from "helpers/checkRegex";
 
 // APIs
-import { contactForm } from "apis";
+import { newsletter } from "apis";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [message, setMessage] = useState("");
 
   const onSubmitEmail = async () => {
-    try {
-      const res = await contactForm({ data: { email: email } });
-      console.log(res);
-      if (res.data?.data) {
-        setFormSubmitted(true);
-        setEmail("");
-        setTimeout(function () {
-          setFormSubmitted(false);
-        }, 2000);
+    if (email !== "") {
+      if (validateEmail(email)) {
+        try {
+          let data = { email_address: email, status: "subscribed" };
+
+          const res = await newsletter(data);
+
+          if (res.data?.data) {
+            setFormSubmitted(true);
+            setEmail("");
+            setMessage("Thank you for subscribing! ");
+            setTimeout(function () {
+              setFormSubmitted(false);
+              setMessage("");
+            }, 5000);
+          }
+        } catch (e) {
+          console.error("Error in MailChimp", e.response);
+          if (e.response.data?.error?.title == "Member Exists") {
+            setError("Thank you! You are already subscribed!");
+          } else {
+            setError("Something went wrong! Try again later!");
+          }
+        }
+      } else {
+        setError("Please enter a valid email!");
       }
-    } catch (e) {
-      console.error("Error in Contact Form", e);
+    } else {
+      setError("Please enter an email!");
     }
   };
 
@@ -54,6 +74,7 @@ export default function Footer() {
               <p className="text-sm leading-5">Copyright © 2021 Rootlogic.</p>
               <p className="text-sm leading-5">All rights reserved</p>
             </div>
+
             <div className="flex space-x-6">
               {navigation.social.map((item) => (
                 <Link href={item.href} key={item.name}>
@@ -74,44 +95,55 @@ export default function Footer() {
                 <NavList heading="Our Services" list={navigation.services} />
               </div>
             </div>
-            <div className="flex flex-col items-start space-y-6 col-span-2">
+            <div className="flex flex-col items-start col-span-2">
               <h2 className="inline text-xl leading-8 font-normal tracking-wider sm:block sm:text-xl">
                 Stay updated with our newsletter
               </h2>
-              <form className="mt-8 sm:flex w-full">
+              <form className="mt-6 sm:flex w-full">
                 <label htmlFor="email" className="sr-only">
                   Email
                 </label>
-                {!formSubmitted ? (
-                  <div className="mt-1 flex items-center py-2 px-3 border-0 bg-white bg-opacity-20 rounded-lg w-full">
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      placeholder="Your email address"
-                      value={email}
-                      onChange={(e) => {
-                        setEmail(inputHandler(e, "email"));
-                      }}
-                      className="appearance-none p-0 bg-transparent text-sm font-normal block w-full border-transparent placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-transparent focus:border-transparent"
-                    />
-                    <Image
-                      src={SendIcon}
-                      className="cursor-pointer transform transition hover:scale-125 duration-300 ease-in-out"
-                      alt="Send"
-                      onClick={() => {
-                        onSubmitEmail();
-                      }}
-                    />
-                  </div>
-                ) : (
-                  <div className="mt-1 flex items-center py-2.5 px-3 border-0 bg-white bg-opacity-20 rounded-lg w-full">
-                    <div className="appearance-none p-0 bg-transparent text-sm font-normal block w-full border-transparent placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-transparent focus:border-transparent">
-                      Thank you!
-                    </div>
-                  </div>
-                )}
+                <div className="mt-1 flex items-center py-2 px-3 border-0 bg-white bg-opacity-20 rounded-lg w-full">
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="Your email address"
+                    value={email}
+                    onChange={(e) => {
+                      setEmail(inputHandler(e, "email"));
+                      setError("");
+                    }}
+                    className="appearance-none p-0 bg-transparent text-sm font-normal block w-full border-transparent placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-transparent focus:border-transparent"
+                  />
+                  <Image
+                    src={SendIcon}
+                    className="cursor-pointer transform transition hover:scale-125 duration-300 ease-in-out"
+                    alt="Send"
+                    onClick={() => {
+                      onSubmitEmail();
+                    }}
+                  />
+                </div>
               </form>
+              {!formSubmitted ? (
+                <></>
+              ) : (
+                <div className="w-full mt-2">
+                  <div className="appearance-none p-0 bg-transparent text-sm font-normal block w-full border-transparent placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-transparent focus:border-transparent">
+                    {message}
+                  </div>
+                </div>
+              )}
+              {!error ? (
+                <></>
+              ) : (
+                <div className="w-full mt-2">
+                  <div className="appearance-none p-0 bg-transparent text-sm font-normal block w-full border-transparent placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-transparent focus:border-transparent">
+                    {error}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
