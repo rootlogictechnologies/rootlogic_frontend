@@ -1,9 +1,15 @@
+require("dotenv").config();
+
 module.exports = {
-  env: {
-    environment: "local",
-    MCApi: "9b04b820beaed4e46b498a2b6d3d2c3c-us20",
-    MCDataCenter: "us20",
-    MCListId: "2ff11b5ae4",
+  serverRuntimeConfig: {
+    // Will only be available on the server side
+    MCApi: process.env.MAIL_CHIP_API_KEY,
+    MCDataCenter: process.env.MC_DATA_CENTER,
+    MCListId: process.env.MC_LIST_ID,
+  },
+  publicRuntimeConfig: {
+    // Will be available on both server and client
+    environment: process.env.NODE_ENV,
   },
   images: {
     domains: [

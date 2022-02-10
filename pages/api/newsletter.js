@@ -1,22 +1,20 @@
 import axios from "axios";
-// import mailchimp from "@mailchimp/mailchimp_marketing";
+import getConfig from "next/config";
 
-const API_KEY = process.env.MCApi;
-const DATA_CENTER = process.env.MCDataCenter;
-const LIST_ID = process.env.MCListId;
+// Only holds serverRuntimeConfig and publicRuntimeConfig
+const { serverRuntimeConfig, publicRuntimeConfig } = getConfig();
+// Will only be available on the server-side
+console.log(serverRuntimeConfig);
+// Will be available on both server-side and client-side
+console.log(publicRuntimeConfig.staticFolder);
 
-// mailchimp.setConfig({
-//   apiKey: API_KEY,
-//   server: DATA_CENTER,
-// });
+// const API_KEY = process.env.MCApi;
+// const DATA_CENTER = process.env.MCDataCenter;
+// const LIST_ID = process.env.MCListId;
 
-// const healthCheck = () => {
-//   return mailchimp.ping.get();
-// };
-
-// const subscribe = (data) => {
-//   return client.lists.addListMember(LIST_ID, data);
-// };
+const API_KEY = serverRuntimeConfig.MCApi;
+const DATA_CENTER = serverRuntimeConfig.MCDataCenter;
+const LIST_ID = serverRuntimeConfig.MCListId;
 
 const url = `https://${DATA_CENTER}.api.mailchimp.com/3.0/lists/${LIST_ID}/members`;
 
@@ -30,6 +28,7 @@ const headers = {
 export default async (req, res) => {
   try {
     const data = req.body;
+    // console.log("url", url);
 
     const response = await axios.post(url, data, { headers });
 
