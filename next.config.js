@@ -9,7 +9,7 @@ module.exports = {
   },
   publicRuntimeConfig: {
     // Will be available on both server and client
-    environment: process.env.NODE_ENV,
+    environment: "production",
   },
   images: {
     domains: [

@@ -28,7 +28,6 @@ const headers = {
 export default async (req, res) => {
   try {
     const data = req.body;
-    // console.log("url", url);
 
     const response = await axios.post(url, data, { headers });
 
