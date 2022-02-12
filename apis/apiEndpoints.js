@@ -10,7 +10,7 @@ console.log(serverRuntimeConfig);
 const config = {
   environment: publicRuntimeConfig.environment || "development",
   endpoints: {
-    prod: "http://localhost:1337/api",
+    prod: "http://104.248.124.20:4000/api",
     dev: "http://localhost:1337/api",
     local: "http://localhost:1337/api",
   },
