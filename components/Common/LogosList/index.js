@@ -5,6 +5,9 @@ import "slick-carousel/slick/slick-theme.css";
 // Component
 import Logos from "components/Common/Logos";
 
+// Partners' Logos
+import CaaryaLogo from "assets/Logo/CaaryaLogo.svg";
+
 function LogosList({ list }) {
   const settings = {
     dots: false,
@@ -63,7 +66,7 @@ function LogosList({ list }) {
             {list &&
               list.length > 0 &&
               list.map((item, index) => {
-                return <Logos image={item?.url} index={index} />;
+                return <Logos image={item?.url || CaaryaLogo} index={index} />;
               })}
           </Slider>
         </div>

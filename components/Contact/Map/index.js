@@ -74,7 +74,7 @@ function WorldMap() {
   }, []);
 
   return (
-    <div className="wrapper w-full max-w-6xl my-10 mx-auto md:h-615px max-h-80vh px-5">
+    <div className="wrapper w-full max-w-6xl my-10 mx-auto max-h-80vh px-5 overflow-y-hidden">
       <div className="relative w-full h-full contain hidden md:block">
         <Image
           src={WorldMapSVG}

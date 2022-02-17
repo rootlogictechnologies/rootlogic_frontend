@@ -80,7 +80,7 @@ export default function Services({ pageBanner, process, cta, allServices }) {
       <TwoColumnGrid
         heading={process?.attributes?.heroHeading}
         data={process?.attributes}
-        cssClass="md:grid-flow-col"
+        // cssClass="md:grid-flow-col"
       />
       <ContactUsCTA data={cta?.attributes} />
     </div>

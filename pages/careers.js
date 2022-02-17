@@ -33,7 +33,6 @@ export default function Careers({
           "At Rootlogic, we are on a constant lookout for great minds brimming with fresh ideas and are willing to take the path less taken, determined to scale greater heights and bring creativity to life with technology."
         }
       />
-
       <TwoColumnGrid
         heading={team?.attributes?.heroHeading}
         data={team?.attributes}
@@ -47,7 +46,6 @@ export default function Careers({
         data={hiringProcess?.attributes}
       />
       <ContactUs data={contact?.attributes} />
-
       <CurrentOpenings
         heading={currentOpenings?.attributes?.heroHeading}
         data={currentOpenings?.attributes}

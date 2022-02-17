@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import moment from "moment";
 
 // Assets
 import Logo from "assets/Logo/LetterLogoWhite.svg";
@@ -71,7 +72,9 @@ export default function Footer() {
           <div className="col-span-3 flex flex-col items-start space-y-10">
             <Image className="h-10" src={Logo} alt="Company name" />
             <div className="flex flex-col items-start space-y-2 font-normal opacity-50">
-              <p className="text-sm leading-5">Copyright © 2021 Rootlogic.</p>
+              <p className="text-sm leading-5">
+                Copyright © {moment().format("YYYY")} Rootlogic.
+              </p>
               <p className="text-sm leading-5">All rights reserved</p>
             </div>
 

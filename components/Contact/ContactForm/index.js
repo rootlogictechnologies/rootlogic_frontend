@@ -4,6 +4,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import TextareaAutosize from "@mui/material/TextareaAutosize";
 
 // Utils
 import { inputHandler } from "helpers/inputHandler";
@@ -234,11 +235,11 @@ function ContactForm() {
             </Select>
           </FormControl>
         </div>
-        <TextField
+        <TextareaAutosize
           id="projectDescription"
           label="About the Project"
           type="text"
-          rows={4}
+          minRows={1}
           variant="standard"
           value={details?.projectDescription}
           onChange={(e) => {
