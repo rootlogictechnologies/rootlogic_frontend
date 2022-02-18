@@ -8,23 +8,10 @@ import "slick-carousel/slick/slick-theme.css";
 import Quote from "assets/Quote.svg";
 import Demo from "assets/DemoMember.png";
 
-function Testimonial({ data }) {
+function Testimonial({ testimonials }) {
   const [list, setList] = useState([]);
   const [selectedTestimonial, setSelectedTestimonial] = useState();
-
-  useEffect(() => {
-    let temp = [];
-    data?.testimonials?.data &&
-      data?.testimonials?.data.length > 0 &&
-      data?.testimonials?.data.map((item) => {
-        let temp1 = item?.attributes;
-        temp1["id"] = item?.id;
-        temp.push(temp1);
-      });
-    setList(temp);
-    setSelectedTestimonial(temp[0]);
-  }, [data]);
-
+  const [toolTipOffset, setToolTipOffset] = useState("50%");
   const settings = {
     dots: true,
     infinite: true,
@@ -61,15 +48,47 @@ function Testimonial({ data }) {
     ],
   };
 
+  useEffect(() => {
+    let temp = [];
+    testimonials?.data &&
+      testimonials?.data.length > 0 &&
+      testimonials?.data.map((item) => {
+        let temp1 = item?.attributes;
+        temp1["id"] = item?.id;
+        temp.push(temp1);
+      });
+    setList(temp);
+    setSelectedTestimonial(temp[0]);
+    getOffset();
+  }, [testimonials]);
+
+  const getOffset = () => {
+    let divId = `person-${selectedTestimonial?.id}`;
+    let person = document.getElementById(divId.trim());
+    if (person) {
+      let personOffset = person.offsetLeft;
+      let personWidth = person.offsetWidth;
+      let offset = personOffset + personWidth / 2;
+      setToolTipOffset(`${offset}px`);
+    } else {
+      setToolTipOffset("50%");
+    }
+  };
+
+  useEffect(() => {
+    getOffset();
+  }, [selectedTestimonial]);
+
   return (
     <>
-      <div className="mx-auto max-w-5xl bg-white rounded-xl p-7 md:py-10 md:px-8">
+      <div className="testimonial mx-auto max-w-5xl bg-white rounded-xl p-7 md:py-10 md:px-8">
         <div className="w-7 h-7 md:w-8 md:h-8 absolute relative">
           <Image src={Quote} alt="Quote" layout="fill" />
         </div>
         <div className="font-normal ml-10 md:ml-14 -mt-7 md:-mt-8 text-sm md:text-md leading-5 md:leading-7 text-rl-dark-grey">
           {selectedTestimonial?.description}
         </div>
+        <div className="testimonial-tooltip" style={{ left: toolTipOffset }} />
       </div>
       <div className="mt-14">
         <Slider {...settings}>
@@ -78,7 +97,8 @@ function Testimonial({ data }) {
             list.map((item, index) => {
               return (
                 <div
-                  className="flex flex-row items-center testimonial max-w-max mx-auto cursor-pointer transform transition ease-in-out mb-8"
+                  id={`person-${item?.id}`}
+                  className="flex flex-row items-center testimonial-people max-w-max mx-auto cursor-pointer transform transition ease-in-out mb-8"
                   key={index}
                   onClick={() => {
                     setSelectedTestimonial(item);

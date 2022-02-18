@@ -1,4 +1,5 @@
 import Heading from "components/Common/Heading";
+import MobileTestimonial from "./MobileTestimonial";
 import Testimonial from "./Testimonial";
 
 function TestimonialsSection({ heading, data, testimonials }) {
@@ -12,7 +13,12 @@ function TestimonialsSection({ heading, data, testimonials }) {
                 heading || "Look at what our clients are saying about us"
               }
             />
-            <Testimonial data={data} testimonials={testimonials} />
+            <div id="testimonialOuter" className="xsm:block hidden">
+              <Testimonial testimonials={data?.testimonials} />
+            </div>
+            <div className="xsm:hidden block">
+              <MobileTestimonial testimonials={data?.testimonials} />
+            </div>
           </div>
         </div>
       </div>

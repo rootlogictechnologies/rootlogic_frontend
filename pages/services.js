@@ -44,10 +44,10 @@ export default function Services({ pageBanner, process, cta, allServices }) {
           list.length > 0 &&
           list.map((item, index) => {
             return (
-              <div className="eachservicewithtech" key={index} id={index}>
+              <div className="eachservicewithtech" key={index} id={index + 1}>
                 <div
-                  className={`servicedetails w-full flex flex-col bg-services-graphic mlg:${
-                    index % 2 == 0 ? "flex-row" : "flex-row-reverse"
+                  className={`servicedetails w-full flex flex-col bg-services-graphic ${
+                    index % 2 == 0 ? "mlg:flex-row" : "mlg:flex-row-reverse"
                   } items-center justify-between`}
                 >
                   <div
