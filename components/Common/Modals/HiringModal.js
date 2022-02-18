@@ -183,7 +183,7 @@ function HiringModal({ open, setOpen, job }) {
           className="fixed z-30 inset-0 overflow-y-auto"
           onClose={setOpen}
         >
-          <div className="flex items-end justify-center min-h-screen max-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+          <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -224,10 +224,10 @@ function HiringModal({ open, setOpen, job }) {
                   </button>
                 </div>
                 <div className="flex flex-col md:flex-row sm:items-center w-full h-full bg-rl-light">
-                  <div className="w-full md:w-1/2 bg-rl-light px-12 py-24 h-full">
+                  <div className="w-full md:w-1/2 bg-rl-light px-12 py-24 h-full hidden md:block">
                     <Image src={ModalGraphic} />
                   </div>
-                  <div className="w-full md:w-1/2 flex flex-col items-start px-10 py-16 space-y-7 bg-white">
+                  <div className="w-full md:w-1/2 flex flex-col items-start px-6 md:px-10 py-16 space-y-7 bg-white">
                     <Dialog.Title className="font-semibold text-md md:text-3.5xl text-left leading-snug text-rl-dark-grey">
                       Submit your details to apply for this position
                     </Dialog.Title>
