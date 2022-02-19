@@ -22,6 +22,8 @@ function HiringProcess({ heading, data }) {
       data?.teamElements?.data.map((item) => {
         temp.push(item?.attributes);
       });
+
+    temp.sort((a, b) => a.priority - b.priority);
     setList(temp);
   }, [data]);
 

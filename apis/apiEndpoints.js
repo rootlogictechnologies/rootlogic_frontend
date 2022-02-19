@@ -5,12 +5,12 @@ const { serverRuntimeConfig, publicRuntimeConfig } = getConfig();
 // Will only be available on the server-side
 console.log(serverRuntimeConfig);
 // Will be available on both server-side and client-side
-// console.log(publicRuntimeConfig);
+console.log(publicRuntimeConfig);
 
 const config = {
   environment: publicRuntimeConfig.environment || "development",
   endpoints: {
-    prod: "http://104.248.124.20:4000/api",
+    prod: "http://api.rootlogic.tech/api",
     dev: "http://localhost:1337/api",
     local: "http://localhost:1337/api",
   },
